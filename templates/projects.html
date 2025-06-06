@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-gray-200">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GitHub Projects Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        .navbar {
+            background-color: #161b22;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-left img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .navbar-left span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar-search input {
+            padding: 5px 10px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+        }
+
+        .main {
+            display: flex;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h2 {
+            margin: 10px 0 5px;
+        }
+
+        .sidebar p {
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .projects {
+            flex: 1;
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .projects-header input {
+            padding: 5px 10px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            width: 300px;
+        }
+
+        .new-project-btn {
+            padding: 6px 12px;
+            background-color: #238636;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .project-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="w-7 h-7" alt="GitHub"/>
+            <span class="text-white text-lg font-semibold">GitHub</span>
+        </div>
+        <div>
+            <input type="text" placeholder="Type / to search" class="bg-gray-800 border border-gray-600 rounded px-3 py-1 text-sm text-gray-200 focus:outline-none focus:ring focus:ring-blue-500">
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex p-6 space-x-6">
+
+        <!-- Sidebar -->
+        <aside class="w-80 bg-gray-900 rounded-lg p-6 text-center flex flex-col items-center">
+            <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Profile" class="w-36 h-36 rounded-full mb-4"/>
+            <h2 class="text-xl font-semibold">Niraj Kumar</h2>
+            <p class="text-gray-400 mb-2">@NirajG45 • he/him</p>
+            <p class="text-gray-400 text-sm">Hi, I’m Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</p>
+        </aside>
+
+        <!-- Projects Section -->
+        <section class="flex-1">
+
+            <!-- Projects Header -->
+            <div class="flex justify-between items-center mb-4">
+                <input type="text" placeholder="is:open" class="bg-gray-800 border border-gray-600 rounded px-3 py-1 text-sm text-gray-200 w-80 focus:outline-none focus:ring focus:ring-blue-500">
+                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm font-semibold">New project</button>
+            </div>
+
+            <!-- Project Card -->
+            <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 space-y-1">
+                <h3 class="text-lg font-semibold text-blue-400">@NirajG45's untitled project</h3>
+                <p class="text-gray-400 text-sm">Private • Updated on Apr 15</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-500 text-sm text-center py-4 border-t border-gray-700">
+        © 2025 GitHub, Inc. • Terms • Privacy • Security • Status • Docs • Contact
+    </footer>
+
+</body>
+</html>
