@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NirajG45 (Niraj Kumar) · GitHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid #21262d;
+      background-color: #161b22;
+    }
+
+    header h2 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .main-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px;
+      display: flex;
+    }
+
+    .left-panel {
+      width: 25%;
+      text-align: center;
+    }
+
+    .left-panel img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 2px solid #30363d;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .username {
+      color: #8b949e;
+      margin: 5px 0;
+    }
+
+    .bio {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #c9d1d9;
+    }
+
+    .edit-btn {
+      margin-top: 16px;
+      background: #21262d;
+      color: white;
+      padding: 6px 12px;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .follows {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #8b949e;
+    }
+
+    .right-panel {
+      width: 75%;
+      padding-left: 32px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .repo-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 16px;
+      border-radius: 6px;
+    }
+
+    .repo-card h3 {
+      font-size: 16px;
+      color: #58a6ff;
+      margin-bottom: 6px;
+    }
+
+    .repo-card p {
+      font-size: 14px;
+      color: #8b949e;
+    }
+
+    .repo-meta {
+      margin-top: 10px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #8b949e;
+    }
+
+    .contribution-graph {
+      margin-top: 40px;
+    }
+
+    .contribution-graph h4 {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .graph-placeholder {
+      height: 120px;
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2><i class="fas fa-book"></i> Overview</h2>
+  </header>
+
+  <div class="main-container">
+    <div class="left-panel">
+      <img src="profile.png" alt="Niraj Kumar">
+      <div class="name">Niraj Kumar</div>
+      <div class="username">NirajG45 · he/him</div>
+      <div class="bio">Hi, I'm Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</div>
+      <button class="edit-btn">Edit profile</button>
+      <div class="follows">5 followers · 4 following</div>
+    </div>
+
+    <div class="right-panel">
+      <div class="section-title">Popular repositories</div>
+      <div class="repo-grid">
+        <div class="repo-card">
+          <h3>INFINITE_45</h3>
+          <p>This is my online free educational website for all students</p>
+          <div class="repo-meta">
+            <i class="fa-solid fa-circle" style="color:#f14e32"></i> HTML · ⭐1
+          </div>
+        </div>
+        <div class="repo-card">
+          <h3>Voice</h3>
+          <p>Voice recognition based project.</p>
+          <div class="repo-meta">
+            <i class="fa-solid fa-circle" style="color:#f14e32"></i> HTML · ⭐1
+          </div>
+        </div>
+        <div class="repo-card">
+          <h3>New_Attendance_Portal</h3>
+          <p>Secure, responsive web app for managing attendance with role-based access and real-time validation.</p>
+          <div class="repo-meta">
+            <i class="fa-solid fa-circle" style="color:#f14e32"></i> HTML
+          </div>
+        </div>
+        <div class="repo-card">
+          <h3>NirajG45</h3>
+          <p>Config files for my GitHub profile.</p>
+          <div class="repo-meta">Public</div>
+        </div>
+        <div class="repo-card">
+          <h3>Smartbuy</h3>
+          <p>This website enhanced your decision making ka critical thinking process for which product you want to buy.</p>
+          <div class="repo-meta">
+            <i class="fa-solid fa-circle" style="color:#f14e32"></i> HTML
+          </div>
+        </div>
+        <div class="repo-card">
+          <h3>location_Tracking</h3>
+          <p>Location based real-time tracking system.</p>
+          <div class="repo-meta">Public</div>
+        </div>
+      </div>
+
+      <div class="contribution-graph">
+        <h4>202 contributions in the last year</h4>
+        <div class="graph-placeholder"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

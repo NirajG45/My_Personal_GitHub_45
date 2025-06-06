@@ -1,0 +1,258 @@
+/* style.css */
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+/* — NAVBAR REPLICA FOR GITHUB DASHBOARD — */
+.github-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.github-left, .github-center, .github-right {
+  display: flex;
+  align-items: center;
+}
+
+.github-left .nav-button {
+  background: transparent;
+  border: none;
+  color: #c9d1d9;
+  font-size: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.github-left .fab.fa-github {
+  font-size: 24px;
+  color: #c9d1d9;
+  margin-right: 8px;
+}
+
+.github-title {
+  color: #c9d1d9;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.github-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.github-search {
+  width: 400px;
+  max-width: 100%;
+  height: 28px;
+  padding: 4px 8px;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 12px;
+}
+
+.github-search::placeholder {
+  color: #8b949e;
+}
+
+.github-right button,
+.github-right img.github-avatar {
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  font-size: 18px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.github-right img.github-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+}
+
+/* Hover effects */
+.github-left .nav-button:hover,
+.github-left .fa-github:hover,
+.github-right button:hover,
+.github-right img.github-avatar:hover {
+  color: white;
+}
+
+/* Required page layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar, .main, .right-panel {
+  padding: 16px;
+}
+
+
+/* Sidebar */
+.container {
+  display: flex;
+  padding: 1rem;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #161b22;
+  padding: 1rem;
+  border-right: 1px solid #30363d;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #f0f6fc;
+}
+
+.sidebar input {
+  width: 100%;
+  padding: 6px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+  color: #58a6ff;
+  cursor: pointer;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.main h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.action-buttons button {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  background-color: #238636;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.card {
+  background-color: #21262d;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.start-repo, .readme {
+  margin-top: 2rem;
+}
+
+.start-repo input {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: white;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.start-repo button {
+  padding: 0.5rem 1rem;
+  background-color: #238636;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Right panel */
+.right-panel {
+  width: 250px;
+  background-color: #161b22;
+  padding: 1rem;
+  border-left: 1px solid #30363d;
+}
+
+.right-panel h3 {
+  font-size: 1rem;
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+}
+
+.right-panel ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.right-panel li {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar, .right-panel {
+    width: 100%;
+    border: none;
+  }
+  .github-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
