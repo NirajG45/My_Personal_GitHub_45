@@ -50,3 +50,27 @@ window.addEventListener('click', (e) => {
         document.getElementById('account-menu').classList.remove('show');
     }
 });
+
+// Dropdown toggle logic:
+document.getElementById('plus-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('plus-menu').classList.toggle('show');
+    document.getElementById('account-menu').classList.remove('show');
+});
+
+document.getElementById('account-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('account-menu').classList.toggle('show');
+    document.getElementById('plus-menu').classList.remove('show');
+});
+
+// Close dropdown when clicking outside
+window.addEventListener('click', () => {
+    document.getElementById('plus-menu').classList.remove('show');
+    document.getElementById('account-menu').classList.remove('show');
+});
+
+// Sidebar toggle button (optional: for mobile)
+document.getElementById('toggle-sidebar').addEventListener('click', () => {
+    document.getElementById('sidebar-left').classList.toggle('show');
+});
