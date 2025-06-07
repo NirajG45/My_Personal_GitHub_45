@@ -1,96 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isha GitHub Dashboard</title>
-  <link rel="stylesheet" href="/static/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GitHub Home Clone</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
-  <div class="github-navbar">
-    <div class="github-left">
-      <button class="nav-button"><i class="fas fa-bars"></i></button>
-      <i class="fab fa-github fa-2x"></i>
-      <span class="github-title">Dashboard</span>
-    </div>
-    <div class="github-center">
-      <input type="text" class="github-search" placeholder="Type / to search" />
-    </div>
-    <div class="github-right">
-      <button><i class="fas fa-gift"></i></button>
-      <button><i class="fas fa-chevron-down"></i></button>
-      <button><i class="fas fa-plus"></i></button>
-      <button><i class="fas fa-dot-circle"></i></button>
-      <button><i class="fas fa-project-diagram"></i></button>
-      <button><i class="fas fa-envelope"></i></button>
-      <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Profile" class="github-avatar" />
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="sidebar">
-      <h2>Top repositories</h2>
-      <input type="text" placeholder="Find a repository..." />
-      <ul>
-        <li>NirajG45/Niraj-portfolio</li>
-        <li>NirajG45/Currency_Converter</li>
-        <li>NirajG45/New_Attendance_Portal</li>
-        <li>NirajG45/Calculator_py</li>
-        <li>NirajG45/Dice_Roller_with_Flask</li>
-        <li>NirajG45/web_scraper_flask</li>
-        <li>NirajG45/City_weather_app</li>
-      </ul>
+<!-- TOP NAVBAR -->
+<header class="top-nav">
+    <div class="nav-left">
+        <button id="toggle-sidebar">☰</button>
+        <div class="logo">GitHub</div>
+        <nav class="nav-links">
+            <a href="#">Pull requests</a>
+            <a href="#">Issues</a>
+            <a href="#">Codespaces</a>
+            <a href="#">Marketplace</a>
+            <a href="#">Explore</a>
+        </nav>
     </div>
 
-    <div class="main">
-      <h1>Home</h1>
-      <div class="action-buttons">
-        <button>Get code feedback</button>
-        <button>Summarize a pull request</button>
-        <button>Create an issue for a bug</button>
-      </div>
+    <div class="nav-center">
+        <input type="text" placeholder="Search GitHub" class="top-search"/>
+    </div>
 
-      <div class="tutorial">
-        <h3>Learn with a tutorial project</h3>
-        <div class="cards">
-          <div class="card">Introduction to GitHub</div>
-          <div class="card">GitHub Pages</div>
-          <div class="card">Code with Copilot</div>
-          <div class="card">Hello GitHub Actions</div>
+    <div class="nav-right">
+        <button id="notif-btn">🔔</button>
+        <button id="plus-btn">➕</button>
+        <button id="account-btn">
+            <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="avatar"/>
+        </button>
+    </div>
+
+    <!-- Dropdown Menus -->
+    <div class="dropdown" id="plus-menu">
+        <a href="#">New repository</a>
+        <a href="#">Import repository</a>
+        <a href="#">New codespace</a>
+    </div>
+
+    <div class="dropdown" id="account-menu">
+        <a href="#">Your profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Sign out</a>
+    </div>
+</header>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar-left" id="sidebar-left">
+        <h2>Top repositories</h2>
+        <input type="text" placeholder="Find a repository..." class="sidebar-search"/>
+        <ul class="repo-list">
+            <li>NirajG45/Niraj-portfolio</li>
+            <li>NirajG45/Currency_Converter</li>
+            <li>NirajG45/New_Attendance_Portal</li>
+            <li>NirajG45/Calculator_py</li>
+            <li>NirajG45/Dice_Roller_with_Flask</li>
+            <li>NirajG45/web_scraper_flask</li>
+            <li>NirajG45/City_weather_app</li>
+        </ul>
+        <button class="show-more">Show more</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-center">
+
+        <!-- Ask Copilot -->
+        <div class="ask-copilot">
+            <input type="text" placeholder="Ask Copilot"/>
         </div>
-      </div>
 
-      <div class="start-repo">
-        <h3>Start a new repository for NirajG45</h3>
-        <input type="text" placeholder="Repository name..." />
-        <button>Create</button>
-      </div>
+        <!-- Top Buttons -->
+        <div class="top-buttons">
+            <button>Get code feedback</button>
+            <button>Create profile README for me</button>
+            <button>Make a Pong game</button>
+        </div>
 
-      <div class="readme">
-        <h3>Introduce yourself with a profile README</h3>
-        <p>Share info about yourself with a profile README</p>
-      </div>
-    </div>
+        <!-- Tutorial Section -->
+        <section class="tutorial-section">
+            <div class="tutorial-card">Introduction to GitHub</div>
+            <div class="tutorial-card">GitHub Pages</div>
+            <div class="tutorial-card">Code with Copilot</div>
+            <div class="tutorial-card">Hello GitHub Actions</div>
+        </section>
 
-    <div class="right-panel">
-      <h3>Latest changes</h3>
-      <ul>
-        <li>18 hours ago: Fluency and coherence evaluators added</li>
-        <li>Yesterday: Control contrast for all GitHub themes</li>
-        <li>2 days ago: Enhanced metrics for CodeQL</li>
-        <li>2 days ago: DeepSeek-R1 available in GitHub Models</li>
-      </ul>
+        <!-- Start writing code -->
+        <section class="create-repo">
+            <h3>Start a new repository for NirajG45</h3>
+            <input type="text" placeholder="name your new repository..."/>
+            <div class="radio-group">
+                <label><input type="radio" name="visibility"/> Public</label>
+                <label><input type="radio" name="visibility" checked/> Private</label>
+            </div>
+            <button class="create-btn">Create a new repository</button>
+        </section>
 
-      <h3>Explore repositories</h3>
-      <ul>
-        <li>alibaba / nacos</li>
-        <li>quarkusio / quarkus</li>
-        <li>nextcloud / spreed</li>
-      </ul>
-    </div>
-  </div>
+        <!-- Profile README -->
+        <section class="profile-readme">
+            <h3>Introduce yourself with a profile README</h3>
+            <pre class="readme-preview">
+Hi, I'm @NirajG45
+I'm interested in ...
+I'm currently learning ...
+I'm looking to collaborate on ...
+How to reach me ...
+Pronouns: ...
+Fun fact: ...
+            </pre>
+            <button class="create-btn">Create</button>
+        </section>
 
-  <script src="/static/script.js"></script>
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="sidebar-right">
+        <!-- Latest changes -->
+        <section class="latest-changes">
+            <h4>Latest changes</h4>
+            <ul class="timeline">
+                <li>10 hours ago — Models CLI</li>
+                <li>Yesterday — Fluency & coherence evaluators</li>
+                <li>2 days ago — Contrast for GitHub themes</li>
+                <li>3 days ago — Metrics for CodeQL</li>
+            </ul>
+        </section>
+
+        <!-- Explore Repositories -->
+        <section class="explore-repos">
+            <h4>Explore repositories</h4>
+            <div class="explore-card">xcp-ng / xcp</div>
+            <div class="explore-card">dotnet / runtime</div>
+            <div class="explore-card">nextcloud / spreed</div>
+            <button class="explore-more">Explore more →</button>
+        </section>
+    </aside>
+
+</div>
+<script src="static/script.js"></script>
 </body>
 </html>
