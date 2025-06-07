@@ -1,4 +1,4 @@
-// Toggle Left Sidebar
+// Sidebar toggle
 const toggleBtn = document.getElementById("toggle-sidebar");
 const sidebarLeft = document.getElementById("sidebar-left");
 
@@ -6,17 +6,28 @@ toggleBtn.addEventListener("click", () => {
     sidebarLeft.classList.toggle("open");
 });
 
-// Show More Repos
-const showMoreBtn = document.getElementById("show-more-btn");
-const repoList = document.getElementById("repo-list");
+// Dropdown toggle
+const plusBtn = document.getElementById("plus-btn");
+const plusMenu = document.getElementById("plus-menu");
 
-showMoreBtn.addEventListener("click", () => {
-    // For demonstration — add 2 fake repos
-    const newRepo1 = document.createElement("li");
-    newRepo1.textContent = "NirajG45/NewRepo_1";
-    const newRepo2 = document.createElement("li");
-    newRepo2.textContent = "NirajG45/NewRepo_2";
+plusBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    plusMenu.style.display = plusMenu.style.display === "flex" ? "none" : "flex";
+    accountMenu.style.display = "none";
+});
 
-    repoList.appendChild(newRepo1);
-    repoList.appendChild(newRepo2);
+// Account dropdown toggle
+const accountBtn = document.getElementById("account-btn");
+const accountMenu = document.getElementById("account-menu");
+
+accountBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    accountMenu.style.display = accountMenu.style.display === "flex" ? "none" : "flex";
+    plusMenu.style.display = "none";
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener("click", () => {
+    plusMenu.style.display = "none";
+    accountMenu.style.display = "none";
 });
