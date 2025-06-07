@@ -31,3 +31,22 @@ document.addEventListener("click", () => {
     plusMenu.style.display = "none";
     accountMenu.style.display = "none";
 });
+
+// JS for dropdowns:
+document.getElementById('plus-btn').addEventListener('click', () => {
+    document.getElementById('plus-menu').classList.toggle('show');
+    document.getElementById('account-menu').classList.remove('show');
+});
+
+document.getElementById('account-btn').addEventListener('click', () => {
+    document.getElementById('account-menu').classList.toggle('show');
+    document.getElementById('plus-menu').classList.remove('show');
+});
+
+window.addEventListener('click', (e) => {
+    if (!e.target.matches('#plus-btn') && !e.target.closest('#plus-menu') &&
+        !e.target.matches('#account-btn') && !e.target.closest('#account-menu')) {
+        document.getElementById('plus-menu').classList.remove('show');
+        document.getElementById('account-menu').classList.remove('show');
+    }
+});
