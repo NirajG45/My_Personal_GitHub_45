@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+lear<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -252,6 +252,54 @@ body.light-mode .number-box {
 body.light-mode .background-animation {
   opacity: 0.1;
 }
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 5;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(0, 0, 0, 0.651);
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+input:checked + .slider {
+  background-color: #000000cb;
+  box-shadow: 0 0 15px #2c2c2cce;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 </style>
 <body>
     <div class="background-animation"></div>
@@ -264,7 +312,10 @@ body.light-mode .background-animation {
         <div class="time" id="live-time">10:45</div>
         <div class="date" id="live-date">Tue, Apr 23</div>
       </div>
-      <div class="moon" id="moon-toggle">🌙</div>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+        </label>
     </div>
 
     <!-- Laptop Icon -->
@@ -348,10 +399,10 @@ new Chart(ctx, {
 });
 
 // Dark Mode Toggle
-const moonToggle = document.getElementById('moon-toggle');
-moonToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  moonToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+const toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("light-mode");
 });
 
     </script>
