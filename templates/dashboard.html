@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-  /* ==================== GLOBAL RESET ==================== */
+/* ==================== GLOBAL RESET ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -74,163 +74,26 @@ header p {
   box-shadow: inset 0 0 10px rgba(100, 100, 100, 0.1);
 }
 
-/* ==================== DASHBOARD ==================== */
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  padding: 50px;
-  max-width: 1800px;
-  margin: auto;
-}
-
-.dashboard-two-column {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 50px 20px;
-  max-width: 1800px;
-  margin: auto;
-  align-items: flex-start;
-}
-
-.graph-info {
-  flex: 1;
-  min-width: 280px;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  color: #ccc;
-}
-
-.graph-content {
-  flex: 2;
-  min-width: 600px;
-}
-
-.graph-info h2 {
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.graph-info .info-block {
-  margin-bottom: 20px;
-}
-
-.graph-info .info-block h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #ffffff;
-}
-
-.graph-info ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #aaa;
-}
-
-/* ==================== CHART CARD ==================== */
-.chart-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 15px;
-  border: 1px solid #333;
-}
-
-.chart-card {
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(200, 200, 200, 0.2);
-  border-radius: 25px;
-  box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
-  padding: 10px;
-  backdrop-filter: blur(16px);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  flex: 1 1 calc(50% - 10px);
-  min-width: 300px;
-}
-
-.chart-card:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 0 40px rgba(200, 200, 200, 0.3);
-}
-
-.chart-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, #555, transparent, #444);
-  animation: rotate 8s linear infinite;
-  z-index: 0;
-  opacity: 0.03;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.chart-card h2 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #ddd;
-  z-index: 2;
-  position: relative;
-}
-
-.chart-desc {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-bottom: 10px;
-  z-index: 2;
-  position: relative;
-  line-height: 1.5;
-}
-
-canvas {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 400px;
-  z-index: 2;
-  position: relative;
-  transition: filter 0.3s ease;
-}
-
-canvas:hover {
-  filter: brightness(1.3) drop-shadow(0 0 5px #888);
-}
-
-/* ==================== SIDEBAR AND FORM ==================== */
+/* ==================== MAIN LAYOUT ==================== */
 .main-content {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   gap: 20px;
+  justify-content: space-between;
 }
 
 .sidebar {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 25px;
-  width: 260px;
+  width: 100%;
+  max-width: 280px;
   border-radius: 15px;
   border: 1px solid #333;
   font-size: 14px;
   color: #ccc;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
-  position: sticky;
-  top: 100px;
-  height: fit-content;
+  flex: 1;
 }
 
 .sidebar-profile {
@@ -262,7 +125,6 @@ canvas:hover {
   font-size: 0.85rem;
 }
 
-/* Optional GitHub Repo List or Links */
 .repo-list {
   list-style: none;
   padding: 0;
@@ -293,185 +155,14 @@ canvas:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-}
-
 .profile-form {
   flex: 3;
-  background-color: #000000c7;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.form-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.form-left, .form-right {
-  flex: 1 1 300px;
-}
-
-/* ==================== FORM RIGHT SECTION ==================== */
-.form-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  border: 1px solid #333;
-}
-
-/* Large Profile Picture Styling */
-.profile-pic-large {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 4px solid #30363d;
-  object-fit: cover;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-pic-large:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(200, 200, 200, 0.4);
-}
-
-/* Edit Button */
-.edit-btn {
-  background-color: #30363d;
-  color: #ffffff;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.edit-btn:hover {
-  background-color: #484f58;
-  transform: scale(1.05);
-}
-
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
-  color: #d1d5db;
-  padding: 8px;
-  border-radius: 5px;
-}
-
-.form-note,
-.form-link,
-.mention {
-  font-size: 12px;
-  color: #8b949e;
-}
-
-.form-link a {
-  color: #58a6ff;
-  text-decoration: underline;
-}
-
-.orcid-btn,
-.edit-btn,
-.go-profile-btn {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.orcid-btn {
-  background-color: #238636;
-  color: white;
-}
-
-.orcid-btn:hover {
-  background-color: #2ea043;
-}
-
-.edit-btn, .go-profile-btn {
-  background-color: #30363d;
-  color: white;
-}
-
-.edit-btn:hover,
-.go-profile-btn:hover {
-  background-color: #484f58;
-}
-
-.profile-pic-large {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 4px solid #30363d;
-}
-
-/* ==================== REPO LIST ==================== */
-.repo-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.repo-list li {
-  margin-bottom: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #333;
-  transition: background 0.3s;
-}
-
-.repo-list li:hover {
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.repo-list a {
-  color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.repo-list a:hover {
-  text-decoration: underline;
-}
-
-.profile-form {
   background-color: rgba(255, 255, 255, 0.02);
   padding: 30px;
   border-radius: 15px;
   border: 1px solid #333;
   color: #cccccc;
   box-shadow: 0 0 30px rgba(200, 200, 200, 0.05);
-  margin: 40px auto;
-  max-width: 1200px;
 }
 
 .form-header h1 {
@@ -498,28 +189,42 @@ canvas:hover {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid #333;
 }
 
 .profile-pic-large {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 4px solid #444;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  border: 4px solid #30363d;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic-large:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(200, 200, 200, 0.4);
 }
 
 .edit-btn {
-  background-color: #111;
+  background-color: #30363d;
   color: #ffffff;
   padding: 8px 16px;
-  border: 1px solid #555;
+  font-size: 14px;
+  font-weight: 600;
   border-radius: 6px;
+  border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .edit-btn:hover {
-  background-color: #333;
+  background-color: #484f58;
+  transform: scale(1.05);
 }
 
 .form-group {
@@ -581,42 +286,162 @@ canvas:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .form-grid {
-    flex-direction: column;
-  }
-  .form-right {
-    align-items: flex-start;
-  }
+.orcid-btn,
+.go-profile-btn {
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #238636;
+  color: white;
 }
 
+.orcid-btn:hover,
+.go-profile-btn:hover {
+  background-color: #2ea043;
+}
 
-/* ==================== RESPONSIVE QUERIES ==================== */
+/* ========== DASHBOARD TWO-COLUMN SECTION ========== */
+.dashboard-two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 20px;
+  max-width: 1800px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+/* LEFT INFO SECTION */
+.graph-info {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  color: #ccc;
+}
+
+.graph-info h2 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.graph-info .info-block {
+  margin-bottom: 20px;
+}
+
+.graph-info .info-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.graph-info ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #aaa;
+}
+
+/* RIGHT GRAPH SECTION */
+.graph-content {
+  flex: 2;
+  min-width: 600px;
+}
+
+.graph-content .chart-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(200, 200, 200, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
+  padding: 20px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.graph-content .chart-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 0 40px rgba(200, 200, 200, 0.3);
+}
+
+.graph-content .chart-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, #555555, transparent, #444444);
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+  opacity: 0.03;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.graph-content .chart-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #dddddd;
+  z-index: 2;
+  position: relative;
+}
+
+.chart-desc {
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+  line-height: 1.5;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
+  z-index: 2;
+  position: relative;
+  transition: filter 0.3s ease;
+}
+
+canvas:hover {
+  filter: brightness(1.3) drop-shadow(0 0 5px #888888);
+}
+
+/* ========== RESPONSIVENESS ========== */
 @media (max-width: 1024px) {
   .dashboard-two-column {
     flex-direction: column;
+    align-items: center;
   }
 
-  .graph-content, .graph-info {
+  .graph-info,
+  .graph-content {
     width: 100%;
-    min-width: 100%;
-  }
-
-  .chart-row {
-    flex-direction: column;
-  }
-
-  .form-grid {
-    flex-direction: column;
+    min-width: unset;
+    max-width: unset;
   }
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2.2rem;
+  .graph-info h2 {
+    font-size: 1.3rem;
   }
 
-  .chart-card h2 {
+  .graph-info .info-block h3 {
+    font-size: 1rem;
+  }
+
+  .graph-content .chart-card h2 {
     font-size: 1.2rem;
   }
 
@@ -630,28 +455,74 @@ canvas:hover {
 }
 
 @media (max-width: 480px) {
-  .dashboard {
-    padding: 20px;
-    gap: 20px;
+  .dashboard-two-column {
+    padding: 30px 10px;
   }
 
-  .chart-card {
+  .graph-content .chart-card {
     padding: 15px;
-    flex: 1 1 100%;
   }
 
   canvas {
     max-height: 250px;
   }
+}
 
-  .clock {
-    font-size: 1rem;
-    padding: 6px 12px;
-    right: 15px;
-    top: 15px;
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .profile-form {
+    width: 100%;
   }
 }
 
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .form-grid {
+    flex-direction: column;
+  }
+
+  .form-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .form-group h2 {
+    font-size: 1.2rem;
+  }
+
+  .profile-pic-large {
+    width: 120px;
+    height: 120px;
+  }
+
+  .edit-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
 </style>
 </head>
 <body>
