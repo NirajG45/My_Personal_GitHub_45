@@ -674,7 +674,7 @@ canvas:hover {
     <!-- Sidebar Section -->
     <aside class="sidebar">
       <div class="sidebar-profile">
-        <img src="images/Niraj.png" class="profile-pic" />
+        <img src="{{ url_for('static', filename='images/Niraj.png') }}">
         <div>
           <div class="profile-name">Niraj Kumar</div>
           <div class="profile-username">@NirajG45</div>
@@ -748,7 +748,7 @@ canvas:hover {
 
     <!-- Right Profile Picture -->
     <div class="form-right">
-      <img src="images/Niraj_45_.png" class="profile-pic-large" alt="Niraj Kumar Profile Picture" />
+      <img src="{{ url_for('static', filename='images/Niraj_Kumar_45_.png') }}">
       <button class="edit-btn">Niraj_Kumar_45_</button>
     </div>
   </div>
