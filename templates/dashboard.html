@@ -49,15 +49,51 @@
       <div class="form-header">
         <h1>About Profile</h1>
       </div>
-      <div class="form-grid">
-        <div class="form-left">
-          <!-- All input blocks (Name, About, Education, etc.) go here -->
-          <!-- (same as your provided code) -->
+        <div class="form-grid">
+    <!-- Left Inputs -->
+    <div class="form-left">
+      <!-- Name Section -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
+        <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
+      </div>
+
+      <!-- About Myself Section -->
+      <div class="form-group">
+        <label><h2>About Myself</h2></label>
+        <div id="myself" class="form-note">
+          <p>I am a BCA student with knowledge of programming languages like <strong>C, C++, HTML, CSS, JavaScript, Python</strong>, and database tools like <strong>MySQL, MongoDB, and SQLite</strong>.</p>
+          <p>I have completed an Advanced Diploma in Computer Applications (ADCA) and Tally ERP 9. I enjoy learning new technologies and want to gain real-world experience through an internship where I can apply my skills and grow as a developer.</p>
         </div>
-        <div class="form-right">
-          <img src="{{ url_for('static', filename='images/NirajProfile.png') }}" class="profile-pic-large" />
-          <button class="edit-btn">Niraj_Kumar_45_</button>
-        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div class="form-group">
+        <label><h2>Education</h2></label>
+        <ul>
+          <li><strong>BCA</strong> - TMU College, Moradabad (2023–2026)</li>
+          <li><strong>ADCA</strong> - SSIT (Swift Shine and Information Technology) - Completed</li>
+          <li><strong>12th Grade (Science)</strong> - +2 Janata High College, Satayan, Jamui – 2020</li>
+          <li><strong>10th Grade</strong> - +2 Janta High School, Satayan, Jamui – 2018</li>
+        </ul>
+      </div>
+
+      <!-- Certification Section -->
+      <div class="form-group">
+        <label><h2>Certifications</h2></label>
+        <ul>
+          <li>Consistent academic performance in school and college</li>
+          <li>Completed ADCA Program</li>
+          <li>
+            <strong>START Program</strong> – Indian Space Research Organisation (ISRO)<br>
+            <em>Grade: A+, Duration: 19.5 hours, Attendance: 92%</em> (Jan 2025)
+          </li>
+          <li>
+            <strong>C Programming Course</strong> – IIT Bombay (Spoken Tutorial Project)<br>
+            <em>Score: 82.5%, Credits: 2</em> (May 2025)
+          </li>
+        </ul>
       </div>
     </section>
   </main>

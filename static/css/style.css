@@ -38,7 +38,7 @@ header p {
   100% { box-shadow: 0 0 50px #555; }
 }
 
-/* ==================== CLOCK & INFO ==================== */
+/* ==================== CLOCK ==================== */
 .clock {
   position: fixed;
   top: 20px;
@@ -54,6 +54,7 @@ header p {
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
 }
 
+/* ==================== INFO BAR ==================== */
 .info-bar {
   background: rgba(255, 255, 255, 0.03);
   padding: 15px 30px;
@@ -65,7 +66,7 @@ header p {
   box-shadow: inset 0 0 10px rgba(100, 100, 100, 0.1);
 }
 
-/* Sidebar Toggle Button */
+/* ==================== SIDEBAR TOGGLE ==================== */
 .sidebar-toggle {
   display: none;
   background-color: #222;
@@ -79,39 +80,15 @@ header p {
   left: 15px;
   z-index: 1100;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Show only on small screens */
-@media (max-width: 768px) {
-  .sidebar-toggle {
-    display: block;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 250px;
-    height: 100vh;
-    background-color: #111;
-    padding: 30px 20px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-    overflow-y: auto;
-  }
-
-  .sidebar.active {
-    left: 0;
-  }
-
-  .main-content {
-    flex-direction: column;
-    padding-top: 70px; /* Leave space for toggle button */
-  }
+.sidebar-toggle:hover {
+  background-color: #333;
+  transform: scale(1.05);
 }
 
-
-/* ==================== MAIN LAYOUT ==================== */
+/* ==================== MAIN CONTENT ==================== */
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -131,6 +108,7 @@ header p {
   color: #ccc;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
   flex: 1;
+  transition: left 0.3s ease;
 }
 
 .sidebar-profile {
@@ -162,17 +140,25 @@ header p {
   font-size: 0.85rem;
 }
 
+.sidebar-section-title {
+  color: #8b949e;
+  font-size: 12px;
+  margin: 15px 0 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .repo-list {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .repo-list li {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 12px;
   background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-radius: 10px;
   border: 1px solid #333;
   transition: background 0.3s;
 }
@@ -184,325 +170,11 @@ header p {
 .repo-list a {
   color: #58a6ff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .repo-list a:hover {
   text-decoration: underline;
-}
-
-.profile-form {
-  flex: 3;
-  background-color: rgba(255, 255, 255, 0.02);
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #333;
-  color: #cccccc;
-  box-shadow: 0 0 30px rgba(200, 200, 200, 0.05);
-}
-
-.form-header h1 {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 25px;
-  text-shadow: 0 0 8px #555;
-}
-
-.form-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.form-left {
-  flex: 2;
-  min-width: 300px;
-}
-
-.form-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  border: 1px solid #333;
-}
-
-.profile-pic-large {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 4px solid #30363d;
-  object-fit: cover;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-pic-large:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(200, 200, 200, 0.4);
-}
-
-.edit-btn {
-  background-color: #30363d;
-  color: #ffffff;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.edit-btn:hover {
-  background-color: #484f58;
-  transform: scale(1.05);
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group h2 {
-  color: #ffffff;
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 6px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #dddddd;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  background-color: #0d1117;
-  border: 1px solid #333;
-  color: #d1d5db;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 0.95rem;
-}
-
-.form-group ul {
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-  color: #bbbbbb;
-}
-
-.form-group ul li {
-  margin-bottom: 8px;
-}
-
-.form-note {
-  font-size: 0.85rem;
-  color: #999;
-  margin-top: 6px;
-}
-
-.form-link {
-  font-size: 0.85rem;
-  color: #58a6ff;
-  margin-top: 8px;
-}
-
-.form-link a {
-  color: #58a6ff;
-  text-decoration: underline;
-}
-
-.orcid-btn,
-.go-profile-btn {
-  padding: 8px 14px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  background-color: #238636;
-  color: white;
-}
-
-.orcid-btn:hover,
-.go-profile-btn:hover {
-  background-color: #2ea043;
-}
-
-/* ========== DASHBOARD TWO-COLUMN SECTION ========== */
-.dashboard-two-column {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 50px 20px;
-  max-width: 1800px;
-  margin: auto;
-  justify-content: space-between;
-}
-
-/* LEFT INFO SECTION */
-.graph-info {
-  flex: 1;
-  min-width: 280px;
-  max-width: 400px;
-  background-color: rgba(255, 255, 255, 0.02);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  color: #ccc;
-}
-
-.graph-info h2 {
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.graph-info .info-block {
-  margin-bottom: 20px;
-}
-
-.graph-info .info-block h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #ffffff;
-}
-
-.graph-info ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #aaa;
-}
-
-/* RIGHT GRAPH SECTION */
-.graph-content {
-  flex: 2;
-  min-width: 600px;
-}
-
-.graph-content .chart-card {
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(200, 200, 200, 0.2);
-  border-radius: 25px;
-  box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
-  padding: 20px;
-  margin-bottom: 40px;
-  backdrop-filter: blur(16px);
-  overflow: hidden;
-  position: relative;
-  transition: all 0.4s ease;
-}
-
-.graph-content .chart-card:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 0 40px rgba(200, 200, 200, 0.3);
-}
-
-.graph-content .chart-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, #555555, transparent, #444444);
-  animation: rotate 8s linear infinite;
-  z-index: 0;
-  opacity: 0.03;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.graph-content .chart-card h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #dddddd;
-  z-index: 2;
-  position: relative;
-}
-
-.chart-desc {
-  font-size: 0.9rem;
-  color: #aaaaaa;
-  margin-bottom: 10px;
-  z-index: 2;
-  position: relative;
-  line-height: 1.5;
-}
-
-canvas {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 400px;
-  z-index: 2;
-  position: relative;
-  transition: filter 0.3s ease;
-}
-
-canvas:hover {
-  filter: brightness(1.3) drop-shadow(0 0 5px #888888);
-}
-
-/* ========== RESPONSIVENESS ========== */
-@media (max-width: 1024px) {
-  .dashboard-two-column {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .graph-info,
-  .graph-content {
-    width: 100%;
-    min-width: unset;
-    max-width: unset;
-  }
-}
-
-@media (max-width: 768px) {
-  .graph-info h2 {
-    font-size: 1.3rem;
-  }
-
-  .graph-info .info-block h3 {
-    font-size: 1rem;
-  }
-
-  .graph-content .chart-card h2 {
-    font-size: 1.2rem;
-  }
-
-  .chart-desc {
-    font-size: 0.85rem;
-  }
-
-  canvas {
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .dashboard-two-column {
-    padding: 30px 10px;
-  }
-
-  .graph-content .chart-card {
-    padding: 15px;
-  }
-
-  canvas {
-    max-height: 250px;
-  }
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
@@ -520,9 +192,45 @@ canvas:hover {
   .profile-form {
     width: 100%;
   }
+
+  .dashboard-two-column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graph-info,
+  .graph-content {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
 }
 
 @media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: auto;
+    background-color: #111;
+    max-width: 250px;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+
   header h1 {
     font-size: 2.2rem;
   }
@@ -534,6 +242,17 @@ canvas:hover {
   .form-right {
     align-items: flex-start;
     width: 100%;
+  }
+
+  .graph-info h2,
+  .graph-info .info-block h3,
+  .graph-content .chart-card h2,
+  .chart-desc {
+    font-size: 1rem;
+  }
+
+  canvas {
+    max-height: 300px;
   }
 }
 
@@ -557,5 +276,13 @@ canvas:hover {
   .edit-btn {
     padding: 6px 12px;
     font-size: 0.85rem;
+  }
+
+  .chart-card {
+    padding: 15px;
+  }
+
+  canvas {
+    max-height: 250px;
   }
 }
