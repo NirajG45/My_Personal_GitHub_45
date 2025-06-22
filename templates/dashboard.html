@@ -674,7 +674,7 @@ canvas:hover {
     <!-- Sidebar Section -->
     <aside class="sidebar">
       <div class="sidebar-profile">
-        <img src="{{ url_for('static', filename='images/Niraj.png') }}">
+        <img src="{{ url_for('static', filename='images/Niraj.png') }}" class="profile-pic" />
         <div>
           <div class="profile-name">Niraj Kumar</div>
           <div class="profile-username">@NirajG45</div>
@@ -748,7 +748,7 @@ canvas:hover {
 
     <!-- Right Profile Picture -->
     <div class="form-right">
-      <img src="{{ url_for('static', filename='images/Niraj_Kumar_45_.png') }}">
+      <img src="{{ url_for('static', filename='images/Niraj_Kumar_45_.png') }}" class="profile-pic-large" />
       <button class="edit-btn">Niraj_Kumar_45_</button>
     </div>
   </div>
@@ -822,7 +822,14 @@ canvas:hover {
   <section class="chart-card">
     <h2>📁 My GitHub Repositories</h2>
     <p class="chart-desc">Public repositories from GitHub profile NirajG45.</p>
-    <ul id="repo-list" class="repo-list"></ul>
+    <ul id="repo-list" class="repo-list">
+        {% for repo in repos %}
+            <li>
+            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a><br>
+            <small>{{ repo.description or 'No description' }}</small>
+            </li>
+        {% endfor %}
+    </ul>
   </section>
 
   <!-- AI Assistant Button -->
