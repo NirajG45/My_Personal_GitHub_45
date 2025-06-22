@@ -7,396 +7,132 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background: linear-gradient(135deg, #111111 0%, #000000 100%);
-    color: #cccccc;
-    font-family: 'Orbitron', sans-serif;
-    overflow-x: hidden;
-  }
-
-  header {
-    text-align: center;
-    padding: 60px 20px;
-    background: radial-gradient(circle at center, #333333, transparent 70%);
-    animation: pulseGlow 4s infinite alternate;
-  }
-
-  header h1 {
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px #444444, 0 0 20px #444444, 0 0 30px #444444;
-    margin-bottom: 10px;
-  }
-
-  header p {
-    font-size: 1.2rem;
-    color: #999999;
-    text-shadow: 0 0 5px #555555;
-  }
-
-  .info-bar {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 15px 30px;
-    border-top: 1px solid #444444;
-    border-bottom: 1px solid #444444;
-    text-align: center;
-    color: #bbbbbb;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    box-shadow: inset 0 0 10px rgba(100, 100, 100, 0.1);
-  }
-
-  .clock {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 1.2rem;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 16px;
-    border-radius: 12px;
-    border: 1px solid #555555;
-    backdrop-filter: blur(6px);
-    z-index: 1000;
-    box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
-  }
-
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 20px #333333; }
-    100% { box-shadow: 0 0 50px #555555; }
-  }
-
-  .dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    padding: 50px;
-    max-width: 1800px;
-    margin: auto;
-  }
-
-  .chart-card {
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid rgba(200, 200, 200, 0.2);
-    border-radius: 25px;
-    box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
-    padding: 10px;
-    backdrop-filter: blur(16px);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-
-  .chart-card:hover {
-    transform: translateY(-10px) scale(1.01);
-    box-shadow: 0 0 40px rgba(200, 200, 200, 0.3);
-  }
-
-  .chart-card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, #555555, transparent, #444444);
-    animation: rotate 8s linear infinite;
-    z-index: 0;
-    opacity: 0.03;
-  }
-
-  @keyframes rotate {
-    to { transform: rotate(360deg); }
-  }
-
-  .chart-card h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: #dddddd;
-    z-index: 2;
-    position: relative;
-  }
-
-  .chart-desc {
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    margin-bottom: 10px;
-    z-index: 2;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  canvas {
-    z-index: 2;
-    position: relative;
-    transition: filter 0.3s ease;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 400px;
-  }
-
-  canvas:hover {
-    filter: brightness(1.3) drop-shadow(0 0 5px #888888);
-  }
-
-  .ai-assistant {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    font-size: 1.8rem;
-    background: #333333;
-    color: #eeeeee;
-    padding: 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 20px #444444, 0 0 40px #444444;
-    animation: pulseAssistant 2.5s infinite alternate;
-    transition: transform 0.3s;
-    z-index: 1000;
-  }
-
-  .ai-assistant:hover {
-    transform: scale(1.1);
-  }
-
-  @keyframes pulseAssistant {
-    0% { box-shadow: 0 0 10px #444444, 0 0 30px #444444; }
-    100% { box-shadow: 0 0 30px #666666, 0 0 60px #666666; }
-  }
-
-  @media (max-width: 768px) {
-    .chart-card h2 {
-      font-size: 1.2rem;
-    }
-    .chart-desc {
-      font-size: 0.85rem;
-    }
-    canvas {
-      max-height: 300px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .dashboard {
-      padding: 20px;
-      gap: 20px;
-    }
-    .chart-card {
-      padding: 15px;
-    }
-    canvas {
-      max-height: 250px;
-    }
-  }
-
-  .main-content {
-    display: flex;
-    padding: 20px;
-    gap: 20px;
-}
-
-.sidebar {
-    background-color: #000000;
-    padding: 20px;
-    width: 240px;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-.sidebar-profile {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.profile-name {
-    font-weight: bold;
-    color: white;
-}
-
-.profile-username {
-    color: #8b949e;
-    font-size: 12px;
-}
-
-.sidebar-section-title {
-    color: #8b949e;
-    font-size: 11px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.sidebar-item {
-    color: #c9d1d9;
-    padding: 4px 0;
-    cursor: pointer;
-}
-
-.sidebar-item:hover {
-    color: white;
-}
-
-.profile-form {
-    flex: 1;
-    background-color: #000000c7;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.form-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.go-profile-btn {
-    background-color: #000000a9;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.go-profile-btn:hover {
-    background-color: #484f58;
-}
-
-.form-grid {
-    display: flex;
-    gap: 20px;
-}
-
-.form-left {
-    flex: 2;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    background-color: #0d1117;
-    border: 1px solid #30363d;
-    color: #d1d5db;
-    padding: 8px;
-    border-radius: 5px;
-}
-
-.form-note {
-    font-size: 12px;
-    color: #8b949e;
-    margin-top: 5px;
-}
-
-.form-link {
-    font-size: 12px;
-    color: #58a6ff;
-    margin-top: 5px;
-}
-
-.form-link a {
-    color: #58a6ff;
-    text-decoration: underline;
-}
-
-.mention {
-    color: #58a6ff;
-}
-
-.orcid-btn {
-    background-color: #238636;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.orcid-btn:hover {
-    background-color: #2ea043;
-}
-
-.form-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.profile-pic-large {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 4px solid #30363d;
-}
-
-.edit-btn {
-    background-color: #30363d;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.edit-btn:hover {
-    background-color: #484f58;
-}
-.repo-list {
-  list-style: none;
+  /* ==================== GLOBAL RESET ==================== */
+* {
+  margin: 0;
   padding: 0;
-  margin-top: 10px;
+  box-sizing: border-box;
 }
 
-.repo-list li {
-  margin-bottom: 12px;
-  background-color: rgba(255, 255, 255, 0.03);
-  padding: 10px 15px;
-  border-radius: 10px;
+body {
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  color: #cccccc;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at center, #333333, transparent 70%);
+  animation: pulseGlow 4s infinite alternate;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #444444, 0 0 20px #444444, 0 0 30px #444444;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #999999;
+  text-shadow: 0 0 5px #555555;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 20px #333; }
+  100% { box-shadow: 0 0 50px #555; }
+}
+
+/* ==================== CLOCK & INFO ==================== */
+.clock {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid #555;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+}
+
+.info-bar {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px 30px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  text-align: center;
+  color: #bbb;
+  font-size: 1rem;
+  box-shadow: inset 0 0 10px rgba(100, 100, 100, 0.1);
+}
+
+/* ==================== DASHBOARD ==================== */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 50px;
+  max-width: 1800px;
+  margin: auto;
+}
+
+.dashboard-two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 20px;
+  max-width: 1800px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.graph-info {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+  border-radius: 12px;
   border: 1px solid #333;
-  transition: background 0.3s;
+  color: #ccc;
 }
 
-.repo-list li:hover {
-  background-color: rgba(255, 255, 255, 0.07);
+.graph-content {
+  flex: 2;
+  min-width: 600px;
 }
 
-.repo-list a {
-  color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
+.graph-info h2 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
-.repo-list a:hover {
-  text-decoration: underline;
+.graph-info .info-block {
+  margin-bottom: 20px;
 }
 
+.graph-info .info-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.graph-info ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #aaa;
+}
+
+/* ==================== CHART CARD ==================== */
 .chart-row {
   display: flex;
   flex-wrap: wrap;
@@ -410,12 +146,509 @@
 }
 
 .chart-card {
-  flex: 1 1 calc(50% - 10px); /* Two charts per row with gap */
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(200, 200, 200, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
+  padding: 10px;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  flex: 1 1 calc(50% - 10px);
   min-width: 300px;
 }
+
+.chart-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 0 40px rgba(200, 200, 200, 0.3);
+}
+
+.chart-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, #555, transparent, #444);
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+  opacity: 0.03;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.chart-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #ddd;
+  z-index: 2;
+  position: relative;
+}
+
+.chart-desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+  line-height: 1.5;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
+  z-index: 2;
+  position: relative;
+  transition: filter 0.3s ease;
+}
+
+canvas:hover {
+  filter: brightness(1.3) drop-shadow(0 0 5px #888);
+}
+
+/* ==================== SIDEBAR AND FORM ==================== */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  width: 260px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  font-size: 14px;
+  color: #ccc;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #444;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.profile-name {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+}
+
+.profile-username {
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+/* Optional GitHub Repo List or Links */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.repo-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: background 0.3s;
+}
+
+.repo-list li:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.repo-list a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.repo-list a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.profile-form {
+  flex: 3;
+  background-color: #000000c7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-left, .form-right {
+  flex: 1 1 300px;
+}
+
+/* ==================== FORM RIGHT SECTION ==================== */
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+/* Large Profile Picture Styling */
+.profile-pic-large {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #30363d;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic-large:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(200, 200, 200, 0.4);
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #30363d;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #484f58;
+  transform: scale(1.05);
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: #d1d5db;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.form-note,
+.form-link,
+.mention {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.form-link a {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+.orcid-btn,
+.edit-btn,
+.go-profile-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.orcid-btn {
+  background-color: #238636;
+  color: white;
+}
+
+.orcid-btn:hover {
+  background-color: #2ea043;
+}
+
+.edit-btn, .go-profile-btn {
+  background-color: #30363d;
+  color: white;
+}
+
+.edit-btn:hover,
+.go-profile-btn:hover {
+  background-color: #484f58;
+}
+
+.profile-pic-large {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #30363d;
+}
+
+/* ==================== REPO LIST ==================== */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.repo-list li {
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: background 0.3s;
+}
+
+.repo-list li:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.repo-list a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.repo-list a:hover {
+  text-decoration: underline;
+}
+
+.profile-form {
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  color: #cccccc;
+  box-shadow: 0 0 30px rgba(200, 200, 200, 0.05);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.form-header h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 0 0 8px #555;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.form-left {
+  flex: 2;
+  min-width: 300px;
+}
+
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-pic-large {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #444;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.edit-btn {
+  background-color: #111;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #333;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group h2 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 6px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #dddddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background-color: #0d1117;
+  border: 1px solid #333;
+  color: #d1d5db;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.form-group ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  color: #bbbbbb;
+}
+
+.form-group ul li {
+  margin-bottom: 8px;
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 6px;
+}
+
+.form-link {
+  font-size: 0.85rem;
+  color: #58a6ff;
+  margin-top: 8px;
+}
+
+.form-link a {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    flex-direction: column;
+  }
+  .form-right {
+    align-items: flex-start;
+  }
+}
+
+
+/* ==================== RESPONSIVE QUERIES ==================== */
+@media (max-width: 1024px) {
+  .dashboard-two-column {
+    flex-direction: column;
+  }
+
+  .graph-content, .graph-info {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .chart-row {
+    flex-direction: column;
+  }
+
+  .form-grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .chart-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .chart-desc {
+    font-size: 0.85rem;
+  }
+
+  canvas {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 20px;
+    gap: 20px;
+  }
+
   .chart-card {
-    flex: 1 1 100%; /* Stacks vertically on smaller screens */
+    padding: 15px;
+    flex: 1 1 100%;
+  }
+
+  canvas {
+    max-height: 250px;
+  }
+
+  .clock {
+    font-size: 1rem;
+    padding: 6px 12px;
+    right: 15px;
+    top: 15px;
   }
 }
 
@@ -429,7 +662,7 @@
 
   <!-- Info Bar -->
   <div class="info-bar">
-    Real-time insights at a glance. Hover over charts for highlights. Touch-friendly design for mobile users.
+    This portfolio isn’t just built — it’s born from my hands, driven by my mind, and fueled by a heart full of passion and purpose.
   </div>
 
   <!-- Clock -->
@@ -449,107 +682,133 @@
       </div>
     </aside>
 
-    <!-- Public Profile Form -->
-    <section class="profile-form">
-      <div class="form-header">
-        <h1>Public profile</h1>
-        <button class="go-profile-btn">Go to your personal profile</button>
+<!-- Public Profile Form -->
+<section class="profile-form">
+  <div class="form-header">
+    <h1>About Profile</h1>
+    <!-- <button class="go-profile-btn">Personal Profile</button> -->
+  </div>
+
+  <div class="form-grid">
+    <!-- Left Inputs -->
+    <div class="form-left">
+      <!-- Name Section -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
+        <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
       </div>
 
-      <div class="form-grid">
-        <!-- Left Inputs -->
-        <div class="form-left">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
-            <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
-          </div>
-
-          <div class="form-group">
-            <label>Public email</label>
-            <select>
-              <option>Select a verified email to display</option>
-            </select>
-            <p class="form-link">Manage your email in <a href="#">email settings</a>.</p>
-          </div>
-
-          <div class="form-group">
-            <label>Bio</label>
-            <textarea rows="3">Hi, I’m Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</textarea>
-            <p class="form-note">You can <span class="mention">@mention</span> other users and organizations to link to them.</p>
-          </div>
-
-          <div class="form-group">
-            <label>Pronouns</label>
-            <select>
-              <option selected>he/him</option>
-              <option>she/her</option>
-              <option>they/them</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>URL</label>
-            <input type="url" placeholder="https://">
-          </div>
-
-          <div class="form-group">
-            <label>ORCID iD</label>
-            <p class="form-note">ORCID provides a persistent identifier — <a href="#">Learn more at ORCID.org</a>.</p>
-            <button class="orcid-btn">Connect your ORCID iD</button>
-          </div>
-
-          <div class="form-group">
-            <label>Social accounts</label>
-            <p class="form-note">Connect your social accounts here.</p>
-          </div>
-        </div>
-
-        <!-- Right Profile Picture -->
-        <div class="form-right">
-          <img src="images/Niraj_45_.png" class="profile-pic-large" />
-          <button class="edit-btn">Niraj_Kumar_45_</button>
+      <!-- About Myself Section -->
+      <div class="form-group">
+        <label><h2>About Myself</h2></label>
+        <div id="myself" class="form-note">
+          <p>I am a BCA student with knowledge of programming languages like <strong>C, C++, HTML, CSS, JavaScript, Python</strong>, and database tools like <strong>MySQL, MongoDB, and SQLite</strong>.</p>
+          <p>I have completed an Advanced Diploma in Computer Applications (ADCA) and Tally ERP 9. I enjoy learning new technologies and want to gain real-world experience through an internship where I can apply my skills and grow as a developer.</p>
         </div>
       </div>
-    </section>
-  </main>
 
-  <main class="dashboard">
-  <!-- Row 1 -->
-  <div class="chart-row">
+      <!-- Education Section -->
+      <div class="form-group">
+        <label><h2>Education</h2></label>
+        <ul>
+          <li><strong>BCA</strong> - TMU College, Moradabad (2023–2026)</li>
+          <li><strong>ADCA</strong> - SSIT (Swift Shine and Information Technology) - Completed</li>
+          <li><strong>12th Grade (Science)</strong> - +2 Janata High College, Satayan, Jamui – 2020</li>
+          <li><strong>10th Grade</strong> - +2 Janta High School, Satayan, Jamui – 2018</li>
+        </ul>
+      </div>
+
+      <!-- Certification Section -->
+      <div class="form-group">
+        <label><h2>Certifications</h2></label>
+        <ul>
+          <li>Consistent academic performance in school and college</li>
+          <li>Completed ADCA Program</li>
+          <li>
+            <strong>START Program</strong> – Indian Space Research Organisation (ISRO)<br>
+            <em>Grade: A+, Duration: 19.5 hours, Attendance: 92%</em> (Jan 2025)
+          </li>
+          <li>
+            <strong>C Programming Course</strong> – IIT Bombay (Spoken Tutorial Project)<br>
+            <em>Score: 82.5%, Credits: 2</em> (May 2025)
+          </li>
+        </ul>
+      </div>
+
+      <!-- Email Settings -->
+      <div class="form-group">
+        <label>Public Email</label>
+        <select>
+          <option>Select a verified email to display</option>
+        </select>
+        <p class="form-link">Manage your email in <a href="#">email settings</a>.</p>
+      </div>
+    </div>
+
+    <!-- Right Profile Picture -->
+    <div class="form-right">
+      <img src="images/Niraj_45_.png" class="profile-pic-large" alt="Niraj Kumar Profile Picture" />
+      <button class="edit-btn">Niraj_Kumar_45_</button>
+    </div>
+  </div>
+</section>
+
+
+<main class="dashboard-two-column">
+  <!-- Left Info Section -->
+  <div class="graph-info">
+    <h2>📑 Dashboard Info</h2>
+    <p>Welcome to my futuristic dashboard! Here you'll find various graphs displaying my programming progress, tech interest, and tools I use.</p>
+
+    <div class="info-block">
+      <h3>📍 Tip:</h3>
+      <p>Hover over graphs for more insights. Scroll down for different chart types.</p>
+    </div>
+
+    <div class="info-block">
+      <h3>📚 Topics Covered:</h3>
+      <ul>
+        <li>Programming Skills</li>
+        <li>Theoretical Subjects</li>
+        <li>Tool Usage</li>
+        <li>AI, ML, DL Domains</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right Graph Section -->
+  <div class="graph-content">
     <div class="chart-card">
       <h2>📊 Neon Bar Chart</h2>
       <p class="chart-desc">Comparative data using neon bars.</p>
       <canvas id="barChart"></canvas>
     </div>
+
     <div class="chart-card">
       <h2>📈 Smooth Line Chart</h2>
       <p class="chart-desc">Line graph with glowing data points.</p>
       <canvas id="lineChart"></canvas>
     </div>
-  </div>
 
-  <!-- Row 2 -->
-  <div class="chart-row">
     <div class="chart-card">
       <h2>🥧 Hyper Pie Chart</h2>
       <p class="chart-desc">Pie chart showing data proportions.</p>
       <canvas id="pieChart"></canvas>
     </div>
+
     <div class="chart-card">
       <h2>📡 Radar Chart</h2>
       <p class="chart-desc">Multivariate data in a radial format.</p>
       <canvas id="radarChart"></canvas>
     </div>
-  </div>
 
-  <!-- Row 3 -->
-  <div class="chart-row">
     <div class="chart-card">
       <h2>🌐 Polar Area Chart</h2>
       <p class="chart-desc">Data by sector area in circular form.</p>
       <canvas id="polarChart"></canvas>
     </div>
+
     <div class="chart-card">
       <h2>🍩 Doughnut Chart</h2>
       <p class="chart-desc">Pie-like chart with central hole.</p>
@@ -557,6 +816,7 @@
     </div>
   </div>
 </main>
+
 
   <!-- GitHub Repo Section -->
   <section class="chart-card">
