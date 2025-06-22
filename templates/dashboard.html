@@ -673,13 +673,23 @@ canvas:hover {
 
     <!-- Sidebar Section -->
     <aside class="sidebar">
-      <div class="sidebar-profile">
+    <div class="sidebar-profile">
         <img src="{{ url_for('static', filename='images/Niraj.png') }}" class="profile-pic" />
         <div>
-          <div class="profile-name">Niraj Kumar</div>
-          <div class="profile-username">@NirajG45</div>
+        <div class="profile-name">Niraj Kumar</div>
+        <div class="profile-username">@NirajG45</div>
         </div>
-      </div>
+    </div>
+
+    <!-- GitHub Repo List -->
+    <div class="sidebar-section-title">GitHub Repositories</div>
+    <ul class="repo-list">
+        {% for repo in repos %}
+        <li>
+            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
     </aside>
 
 <!-- Public Profile Form -->
@@ -748,7 +758,7 @@ canvas:hover {
 
     <!-- Right Profile Picture -->
     <div class="form-right">
-      <img src="{{ url_for('static', filename='images/Niraj_Kumar_45_.png') }}" class="profile-pic-large" />
+      <img src="{{ url_for('static', filename='images/NirajProfile.png') }}" class="profile-pic-large" />
       <button class="edit-btn">Niraj_Kumar_45_</button>
     </div>
   </div>
@@ -817,27 +827,6 @@ canvas:hover {
   </div>
 </main>
 
-
-  <!-- GitHub Repo Section -->
-  <section class="chart-card">
-    <h2>📁 My GitHub Repositories</h2>
-    <p class="chart-desc">Public repositories from GitHub profile NirajG45.</p>
-    <ul id="repo-list" class="repo-list">
-        {% for repo in repos %}
-            <li>
-            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a><br>
-            <small>{{ repo.description or 'No description' }}</small>
-            </li>
-        {% endfor %}
-    </ul>
-  </section>
-
-  <!-- AI Assistant Button -->
-  <div class="ai-assistant" title="Chat with AI Assistant">
-    🤖
-  </div>
-
-
   <script>
   // Black and Grey theme palette
   const neutralColors = ['#000000', '#222222', '#444444', '#666666', '#888888', '#aaaaaa'];
@@ -850,11 +839,6 @@ canvas:hover {
   }
   setInterval(updateClock, 1000);
   updateClock();
-
-  // Assistant Click Alert
-  document.querySelector('.ai-assistant').addEventListener('click', () => {
-    alert("🧠 Hello! I'm your AI Assistant. What can I help you with?");
-  });
 
   // Chart Setup Function
   const chartConfig = (type, id, data, options = {}) => {
