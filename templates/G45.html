@@ -397,6 +397,28 @@
   text-decoration: underline;
 }
 
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+
+.chart-card {
+  flex: 1 1 calc(50% - 10px); /* Two charts per row with gap */
+  min-width: 300px;
+}
+@media (max-width: 768px) {
+  .chart-card {
+    flex: 1 1 100%; /* Stacks vertically on smaller screens */
+  }
+}
+
 </style>
 </head>
 <body>
@@ -405,164 +427,149 @@
     <p>This is my Niraj_45-portfolio...</p>
   </header>
 
+  <!-- Info Bar -->
   <div class="info-bar">
     Real-time insights at a glance. Hover over charts for highlights. Touch-friendly design for mobile users.
   </div>
 
+  <!-- Clock -->
   <div class="clock" id="clock">00:00:00</div>
 
-      <!-- Main Content -->
-    <main class="main-content">
+  <!-- Main Layout -->
+  <main class="main-content">
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-profile">
-                <img src="images/Niraj.png" class="profile-pic"/>
-                <div>
-                    <div class="profile-name">Niraj Kumar</div>
-                    <div class="profile-username">@NirajG45</div>
-                </div>
-            </div>
-            <div class="sidebar-menu">
-                <!-- <div class="sidebar-section-title">Public profile</div>
-                <div class="sidebar-item">Account</div>
-                <div class="sidebar-item">Appearance</div>
-                <div class="sidebar-item">Accessibility</div>
-                <div class="sidebar-item">Notifications</div>
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <img src="images/Niraj.png" class="profile-pic" />
+        <div>
+          <div class="profile-name">Niraj Kumar</div>
+          <div class="profile-username">@NirajG45</div>
+        </div>
+      </div>
+    </aside>
 
-                <div class="sidebar-section-title">Access</div>
-                <div class="sidebar-item">Billing and licensing</div>
-                <div class="sidebar-item">Emails</div>
-                <div class="sidebar-item">Password and authentication</div>
-                <div class="sidebar-item">Sessions</div>
-                <div class="sidebar-item">SSH and GPG keys</div>
-                <div class="sidebar-item">Organizations</div>
-                <div class="sidebar-item">Enterprises</div>
-                <div class="sidebar-item">Moderation</div>
+    <!-- Public Profile Form -->
+    <section class="profile-form">
+      <div class="form-header">
+        <h1>Public profile</h1>
+        <button class="go-profile-btn">Go to your personal profile</button>
+      </div>
 
-                <div class="sidebar-section-title">Code, planning, and automation</div>
-                <div class="sidebar-item">Repositories</div>
-                <div class="sidebar-item">Codespaces</div>
-                <div class="sidebar-item">Packages</div>
-                <div class="sidebar-item">Copilot</div>
-                <div class="sidebar-item">Pages</div>
-                <div class="sidebar-item">Saved replies</div> -->
-            </div>
-        </aside>
+      <div class="form-grid">
+        <!-- Left Inputs -->
+        <div class="form-left">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
+            <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
+          </div>
 
-        <!-- Public Profile Form -->
-        <section class="profile-form">
+          <div class="form-group">
+            <label>Public email</label>
+            <select>
+              <option>Select a verified email to display</option>
+            </select>
+            <p class="form-link">Manage your email in <a href="#">email settings</a>.</p>
+          </div>
 
-            <!-- Header -->
-            <div class="form-header">
-                <h1>Public profile</h1>
-                <button class="go-profile-btn">Go to your personal profile</button>
-            </div>
+          <div class="form-group">
+            <label>Bio</label>
+            <textarea rows="3">Hi, I’m Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</textarea>
+            <p class="form-note">You can <span class="mention">@mention</span> other users and organizations to link to them.</p>
+          </div>
 
-            <!-- Form Grid -->
-            <div class="form-grid">
-                <!-- Left Form -->
-                <div class="form-left">
+          <div class="form-group">
+            <label>Pronouns</label>
+            <select>
+              <option selected>he/him</option>
+              <option>she/her</option>
+              <option>they/them</option>
+            </select>
+          </div>
 
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" value="I'm Niraj Kumar, a passionate 2nd year BCA student specializing in Data Science. I enjoy learning programming languages like C++ and Python, and I'm deeply interested in Artificial Intelligence and Machine Learning. My goal is to become an expert in these fields by 2026.">
-                        <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
-                    </div>
+          <div class="form-group">
+            <label>URL</label>
+            <input type="url" placeholder="https://">
+          </div>
 
-                    <div class="form-group">
-                        <label>Public email</label>
-                        <select>
-                            <option>Select a verified email to display</option>
-                        </select>
-                        <p class="form-link">Manage your email in <a href="#">email settings</a>.</p>
-                    </div>
+          <div class="form-group">
+            <label>ORCID iD</label>
+            <p class="form-note">ORCID provides a persistent identifier — <a href="#">Learn more at ORCID.org</a>.</p>
+            <button class="orcid-btn">Connect your ORCID iD</button>
+          </div>
 
-                    <div class="form-group">
-                        <label>Bio</label>
-                        <textarea rows="3">Hi, I’m Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</textarea>
-                        <p class="form-note">You can <span class="mention">@mention</span> other users and organizations to link to them.</p>
-                    </div>
+          <div class="form-group">
+            <label>Social accounts</label>
+            <p class="form-note">Connect your social accounts here.</p>
+          </div>
+        </div>
 
-                    <div class="form-group">
-                        <label>Pronouns</label>
-                        <select>
-                            <option selected>he/him</option>
-                            <option>she/her</option>
-                            <option>they/them</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>URL</label>
-                        <input type="url" placeholder="https://">
-                    </div>
-
-                    <div class="form-group">
-                        <label>ORCID iD</label>
-                        <p class="form-note">ORCID provides a persistent identifier — an ORCID iD — <a href="#">Learn more at ORCID.org</a>.</p>
-                        <button class="orcid-btn">Connect your ORCID iD</button>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Social accounts</label>
-                        <p class="form-note">Connect your social accounts here.</p>
-                    </div>
-
-                </div>
-
-                <!-- Right Profile Picture -->
-                <div class="form-right">
-                    <img src="images/Niraj_45_.png" class="profile-pic-large"/>
-                    <button class="edit-btn">Niraj_Kumar_45_</button>
-                </div>
-            </div>
-
-        </section>
-    </main>
+        <!-- Right Profile Picture -->
+        <div class="form-right">
+          <img src="images/Niraj_45_.png" class="profile-pic-large" />
+          <button class="edit-btn">Niraj_Kumar_45_</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <main class="dashboard">
+  <!-- Row 1 -->
+  <div class="chart-row">
     <div class="chart-card">
       <h2>📊 Neon Bar Chart</h2>
-      <p class="chart-desc">This chart shows comparative data using bright neon bars. Ideal for visualizing category-wise values.</p>
+      <p class="chart-desc">Comparative data using neon bars.</p>
       <canvas id="barChart"></canvas>
     </div>
     <div class="chart-card">
       <h2>📈 Smooth Line Chart</h2>
-      <p class="chart-desc">A modern line graph with smooth curves and glowing data points. Best for trend analysis over time.</p>
+      <p class="chart-desc">Line graph with glowing data points.</p>
       <canvas id="lineChart"></canvas>
     </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="chart-row">
     <div class="chart-card">
       <h2>🥧 Hyper Pie Chart</h2>
-      <p class="chart-desc">This pie chart highlights data proportions with stunning colors. Great for distribution views.</p>
+      <p class="chart-desc">Pie chart showing data proportions.</p>
       <canvas id="pieChart"></canvas>
     </div>
     <div class="chart-card">
       <h2>📡 Radar Chart</h2>
-      <p class="chart-desc">Radar charts are useful for comparing multivariate data across categories in a radial layout.</p>
+      <p class="chart-desc">Multivariate data in a radial format.</p>
       <canvas id="radarChart"></canvas>
     </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="chart-row">
     <div class="chart-card">
       <h2>🌐 Polar Area Chart</h2>
-      <p class="chart-desc">Visualizes data values by sector area in a circular format, good for relative comparison.</p>
+      <p class="chart-desc">Data by sector area in circular form.</p>
       <canvas id="polarChart"></canvas>
     </div>
     <div class="chart-card">
       <h2>🍩 Doughnut Chart</h2>
-      <p class="chart-desc">Similar to pie chart but with a hole in the center. Ideal for showing proportions elegantly.</p>
+      <p class="chart-desc">Pie-like chart with central hole.</p>
       <canvas id="doughnutChart"></canvas>
     </div>
-  </main>
+  </div>
+</main>
 
-    <section class="chart-card">
-        <h2>📁 My GitHub Repositories</h2>
-        <p class="chart-desc">These are all the public repositories from my GitHub profile NirajG45.</p>
-        <ul id="repo-list" class="repo-list"></ul>
-    </section>
+  <!-- GitHub Repo Section -->
+  <section class="chart-card">
+    <h2>📁 My GitHub Repositories</h2>
+    <p class="chart-desc">Public repositories from GitHub profile NirajG45.</p>
+    <ul id="repo-list" class="repo-list"></ul>
+  </section>
 
+  <!-- AI Assistant Button -->
   <div class="ai-assistant" title="Chat with AI Assistant">
     🤖
   </div>
+
 
   <script>
   // Black and Grey theme palette
