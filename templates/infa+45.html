@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INFANITE - AI Assistant</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .header {
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 20px;
+      z-index: 1000;
+      text-align: left;
+    }
+    .header h1 {
+      font-size: 24px;
+      color: darkred;
+      margin: 0;
+      text-shadow: 2px 2px 6px rgb(117, 1, 1);
+    }
+    .header h3 {
+      font-size: 14px;
+      margin: 5px 0 0;
+    }
+    .header h3 span {
+      color: darkred;
+      font-weight: bold;
+    }
+    #infinityCanvas {
+      display: none;
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      width: 150px;
+      height: 150px;
+      z-index: 999;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #111;
+      padding: 10px;
+      border-radius: 30px;
+      border: 2px solid #444;
+      width: min(600px, 90%);
+      gap: 10px;
+    }
+    .search-container input {
+      flex-grow: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #222;
+      color: white;
+    }
+    .search-container i {
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+    #output {
+      display: none;
+      margin-bottom: 10px;
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #555;
+      font-size: 16px;
+      color: #ddd;
+      width: min(600px, 90%);
+    }
+    .search-activated #output,
+    .search-activated .header,
+    .search-activated #infinityCanvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="header" id="header">
+    <h1>INFANITE</h1>
+    <h3>Welcome to the <span>Future</span></h3>
+  </div>
+  <canvas id="infinityCanvas"></canvas>
+
+  <div class="main">
+    <div id="output"></div>
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="Search..." />
+      <i class="fa fa-microphone" onclick="startVoiceSearch()"></i>
+      <i class="fa fa-camera" onclick="startImageSearch()"></i>
+      <i class="fa fa-search" onclick="startCustomSearch()"></i>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("infinityCanvas");
+    const ctx = canvas.getContext("2d");
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+    let angle = 0;
+    let trail = [];
+    const maxTrail = 160;
+    function drawInfinity() {
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const w = canvas.width;
+      const h = canvas.height;
+      const scale = Math.min(w, h) / 2.2;
+      const dotRadius = Math.max(2, scale * 0.045);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "rgba(169, 169, 169, 0.8)";
+      ctx.beginPath();
+      for (let t = 0; t <= Math.PI * 2; t += 0.02) {
+        const x = scale * Math.sin(t) / (1 + Math.cos(t) ** 2) + w / 2;
+        const y = scale * Math.sin(t) * Math.cos(t) / (1 + Math.cos(t) ** 2) + h / 2;
+        if (t === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      const t = angle % (Math.PI * 2);
+      const x = scale * Math.sin(t) / (1 + Math.cos(t) ** 2) + w / 2;
+      const y = scale * Math.sin(t) * Math.cos(t) / (1 + Math.cos(t) ** 2) + h / 2;
+      trail.push({ x, y });
+      if (trail.length > maxTrail) trail.shift();
+      for (let i = 0; i < trail.length; i++) {
+        const point = trail[i];
+        const opacity = (i + 1) / trail.length;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(169, 169, 169, ${opacity})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "rgba(169,169,169,0.4)";
+        ctx.arc(point.x, point.y, dotRadius, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      angle += 0.015;
+      requestAnimationFrame(drawInfinity);
+    }
+    drawInfinity();
+    window.addEventListener("resize", resizeCanvas);
+
+    function startVoiceSearch() {
+      document.getElementById("output").textContent = "Voice search activated.";
+      document.body.classList.add("search-activated");
+    }
+    function startImageSearch() {
+      document.getElementById("output").textContent = "Image search activated.";
+      document.body.classList.add("search-activated");
+    }
+    function startCustomSearch() {
+      const query = document.getElementById("search-box").value;
+      const header = document.getElementById("header");
+      const canvasWrapper = document.getElementById("canvasWrapper");
+      header.classList.add("move-top-left");
+      document.getElementById("infinityCanvas").classList.add("move-top-right");
+      document.body.classList.add("search-activated");
+      if (query.trim()) {
+        fetch('/query', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ query })
+        })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("output").textContent = data.response;
+        })
+        .catch(() => {
+          document.getElementById("output").textContent = "Error: Backend not responding.";
+        });
+      } else {
+        document.getElementById("output").textContent = "Please enter something.";
+      }
+    }
+    document.getElementById("search-box").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        startCustomSearch();
+      }
+    });
+  </script>
+</body>
+</html>

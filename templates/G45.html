@@ -77,7 +77,7 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
     padding: 50px;
-    max-width: 1400px;
+    max-width: 1800px;
     margin: auto;
   }
 
@@ -86,7 +86,7 @@
     border: 2px solid rgba(200, 200, 200, 0.2);
     border-radius: 25px;
     box-shadow: 0 0 25px rgba(200, 200, 200, 0.1);
-    padding: 25px;
+    padding: 10px;
     backdrop-filter: blur(16px);
     position: relative;
     overflow: hidden;
@@ -194,12 +194,215 @@
       max-height: 250px;
     }
   }
+
+  .main-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.sidebar {
+    background-color: #000000;
+    padding: 20px;
+    width: 240px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-weight: bold;
+    color: white;
+}
+
+.profile-username {
+    color: #8b949e;
+    font-size: 12px;
+}
+
+.sidebar-section-title {
+    color: #8b949e;
+    font-size: 11px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.sidebar-item {
+    color: #c9d1d9;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    color: white;
+}
+
+.profile-form {
+    flex: 1;
+    background-color: #000000c7;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.go-profile-btn {
+    background-color: #000000a9;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.go-profile-btn:hover {
+    background-color: #484f58;
+}
+
+.form-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.form-left {
+    flex: 2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #d1d5db;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.form-note {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 5px;
+}
+
+.form-link {
+    font-size: 12px;
+    color: #58a6ff;
+    margin-top: 5px;
+}
+
+.form-link a {
+    color: #58a6ff;
+    text-decoration: underline;
+}
+
+.mention {
+    color: #58a6ff;
+}
+
+.orcid-btn {
+    background-color: #238636;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.orcid-btn:hover {
+    background-color: #2ea043;
+}
+
+.form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic-large {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #30363d;
+}
+
+.edit-btn {
+    background-color: #30363d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #484f58;
+}
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.repo-list li {
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: background 0.3s;
+}
+
+.repo-list li:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.repo-list a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.repo-list a:hover {
+  text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
   <header>
-    <h1>⚡ Futuristic Chart Dashboard</h1>
-    <p>Interactive, Animated & Styled with Neon & Glassmorphism</p>
+    <h1>⚡ Welcome to the future</h1>
+    <p>This is my Niraj_45-portfolio...</p>
   </header>
 
   <div class="info-bar">
@@ -207,6 +410,116 @@
   </div>
 
   <div class="clock" id="clock">00:00:00</div>
+
+      <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <img src="images/Niraj.png" class="profile-pic"/>
+                <div>
+                    <div class="profile-name">Niraj Kumar</div>
+                    <div class="profile-username">@NirajG45</div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <!-- <div class="sidebar-section-title">Public profile</div>
+                <div class="sidebar-item">Account</div>
+                <div class="sidebar-item">Appearance</div>
+                <div class="sidebar-item">Accessibility</div>
+                <div class="sidebar-item">Notifications</div>
+
+                <div class="sidebar-section-title">Access</div>
+                <div class="sidebar-item">Billing and licensing</div>
+                <div class="sidebar-item">Emails</div>
+                <div class="sidebar-item">Password and authentication</div>
+                <div class="sidebar-item">Sessions</div>
+                <div class="sidebar-item">SSH and GPG keys</div>
+                <div class="sidebar-item">Organizations</div>
+                <div class="sidebar-item">Enterprises</div>
+                <div class="sidebar-item">Moderation</div>
+
+                <div class="sidebar-section-title">Code, planning, and automation</div>
+                <div class="sidebar-item">Repositories</div>
+                <div class="sidebar-item">Codespaces</div>
+                <div class="sidebar-item">Packages</div>
+                <div class="sidebar-item">Copilot</div>
+                <div class="sidebar-item">Pages</div>
+                <div class="sidebar-item">Saved replies</div> -->
+            </div>
+        </aside>
+
+        <!-- Public Profile Form -->
+        <section class="profile-form">
+
+            <!-- Header -->
+            <div class="form-header">
+                <h1>Public profile</h1>
+                <button class="go-profile-btn">Go to your personal profile</button>
+            </div>
+
+            <!-- Form Grid -->
+            <div class="form-grid">
+                <!-- Left Form -->
+                <div class="form-left">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" value="I'm Niraj Kumar, a passionate 2nd year BCA student specializing in Data Science. I enjoy learning programming languages like C++ and Python, and I'm deeply interested in Artificial Intelligence and Machine Learning. My goal is to become an expert in these fields by 2026.">
+                        <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Public email</label>
+                        <select>
+                            <option>Select a verified email to display</option>
+                        </select>
+                        <p class="form-link">Manage your email in <a href="#">email settings</a>.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea rows="3">Hi, I’m Niraj Kumar, a 2nd-year BCA student specializing in Machine Learning and Web Development.</textarea>
+                        <p class="form-note">You can <span class="mention">@mention</span> other users and organizations to link to them.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pronouns</label>
+                        <select>
+                            <option selected>he/him</option>
+                            <option>she/her</option>
+                            <option>they/them</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input type="url" placeholder="https://">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ORCID iD</label>
+                        <p class="form-note">ORCID provides a persistent identifier — an ORCID iD — <a href="#">Learn more at ORCID.org</a>.</p>
+                        <button class="orcid-btn">Connect your ORCID iD</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Social accounts</label>
+                        <p class="form-note">Connect your social accounts here.</p>
+                    </div>
+
+                </div>
+
+                <!-- Right Profile Picture -->
+                <div class="form-right">
+                    <img src="images/Niraj_45_.png" class="profile-pic-large"/>
+                    <button class="edit-btn">Niraj_Kumar_45_</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
   <main class="dashboard">
     <div class="chart-card">
@@ -240,6 +553,12 @@
       <canvas id="doughnutChart"></canvas>
     </div>
   </main>
+
+    <section class="chart-card">
+        <h2>📁 My GitHub Repositories</h2>
+        <p class="chart-desc">These are all the public repositories from my GitHub profile NirajG45.</p>
+        <ul id="repo-list" class="repo-list"></ul>
+    </section>
 
   <div class="ai-assistant" title="Chat with AI Assistant">
     🤖
@@ -296,10 +615,10 @@
 
   // Bar Chart
   chartConfig('bar', 'barChart', {
-    labels: ["One", "Two", "Three", "Four", "Five", "Six"],
+    labels: ["C", "C++", "MySQL", "Python", "JavaScript", "HMTL/HTML5", "CSS"],
     datasets: [{
-      label: "Data",
-      data: [12, 19, 3, 5, 2, 8],
+      label: "Programming Languages",
+      data: [18, 17.4, 15, 9.9, 6.9, 18, 12],
       backgroundColor: neutralColors,
       borderWidth: 1
     }]
@@ -307,10 +626,10 @@
 
   // Line Chart
   chartConfig('line', 'lineChart', {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    labels: ["SE", "ML", "DL", "Computer Fun.", "CyberSecurity", "Computer Net."],
     datasets: [{
-      label: "Growth",
-      data: [3, 6, 4, 8, 5, 9],
+      label: "Theoritical Subjects",
+      data: [8.7, 7.2, 5.4, 8, 5, 9],
       borderColor: "#888888",
       backgroundColor: "rgba(136,136,136,0.1)",
       fill: true,
@@ -323,9 +642,9 @@
 
   // Pie Chart
   chartConfig('pie', 'pieChart', {
-    labels: ["Chrome", "Firefox", "Edge", "Safari"],
+    labels: ["GitHub", "LinkDIn", "AI Tools", "VS code"],
     datasets: [{
-      data: [40, 25, 20, 15],
+      data: [72, 54, 36, 87],
       backgroundColor: neutralColors,
       borderColor: "#ccc",
       borderWidth: 1
@@ -334,7 +653,7 @@
 
   // Radar Chart
   chartConfig('radar', 'radarChart', {
-    labels: ["Speed", "Efficiency", "Accuracy", "Design", "Performance", "Support"],
+    labels: ["Flask", "Scikit-learn", "Pandash", "NumPye", "Tenserflow", "Niex"],
     datasets: [{
       label: "Scores",
       data: [8, 9, 7, 6, 9, 8],
@@ -346,9 +665,9 @@
 
   // Polar Area Chart
   chartConfig('polarArea', 'polarChart', {
-    labels: ["North", "East", "South", "West"],
+    labels: ["Machine Learning", "AI", "Software Engineering", "Robotic"],
     datasets: [{
-      label: "Direction",
+      label: "Performance",
       data: [11, 16, 7, 14],
       backgroundColor: neutralColors
     }]
@@ -356,13 +675,29 @@
 
   // Doughnut Chart
   chartConfig('doughnut', 'doughnutChart', {
-    labels: ["A", "B", "C", "D"],
+    labels: ["ML", "AI", "DL", "Robotic"],
     datasets: [{
       data: [20, 30, 25, 25],
       backgroundColor: neutralColors,
       borderColor: "#ccc",
       borderWidth: 1
     }]
+  });
+
+  // Load GitHub repos dynamically
+fetch('https://api.github.com/users/NirajG45/repos')
+  .then(response => response.json())
+  .then(data => {
+    const list = document.getElementById('repo-list');
+    data.forEach(repo => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a><br><small>${repo.description || 'No description'}</small>`;
+      list.appendChild(li);
+    });
+  })
+  .catch(error => {
+    document.getElementById('repo-list').innerHTML = '<li>⚠️ Could not load repositories.</li>';
+    console.error('GitHub Repo Load Error:', error);
   });
 </script>
 </body>
