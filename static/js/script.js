@@ -120,3 +120,56 @@ fetch('https://api.github.com/users/NirajG45/repos')
     document.getElementById('repo-list').innerHTML = '<li>⚠️ Could not load repositories.</li>';
     console.error(err);
   });
+
+//   for front page
+// Live Time Update
+function updateTime() {
+    const now = new Date();
+    const timeEl = document.getElementById('live-time');
+    const dateEl = document.getElementById('live-date');
+    
+    timeEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+
+// Radar Chart (Skills)
+const ctx = document.getElementById('skillsChart').getContext('2d');
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['Web Development', 'Machine Learning', 'AI', 'Robotics & Deep Learning', 'Robotics', 'Programming'],
+        datasets: [{
+            label: 'Skills',
+            data: [9, 8, 6, 7, 5, 7],
+            backgroundColor: 'rgba(0, 240, 255, 0.2)',
+            borderColor: '#00f0ff',
+            pointBackgroundColor: '#00f0ff',
+            pointBorderColor: '#00f0ff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#00f0ff'
+        }]
+    },
+    options: {
+        scales: {
+            r: {
+                angleLines: { color: '#333' },
+                grid: { color: '#444' },
+                pointLabels: { color: '#00f0ff', font: { size: 14 } },
+                ticks: { display: false }
+            }
+        },
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+
+// Dark Mode Toggle
+const toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("light-mode");
+});
