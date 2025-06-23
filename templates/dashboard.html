@@ -2,23 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Futuristic Chart Dashboard</title>
-  <!-- Fonts and Chart.js -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niraj_45 Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- CSS File -->
-  <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
   <header>
     <h1>⚡ Welcome to the future</h1>
     <p>This is my Niraj_45-portfolio...</p>
-    <!-- Sidebar Toggle Button -->
     <button id="sidebarToggle" class="sidebar-toggle">☰ Menu</button>
   </header>
 
@@ -28,264 +24,195 @@
 
   <div class="clock" id="clock">00:00:00</div>
 
-    <main class="main-content">
-        <!-- Sidebar Section -->
-        <aside class="sidebar">
-        <div class="sidebar-profile">
-            <img src="{{ url_for('static', filename='images/Niraj.png') }}" class="profile-pic" />
-            <div>
-            <div class="profile-name">Niraj Kumar</div>
-            <div class="profile-username">@NirajG45</div>
-            </div>
+  <main class="main-content">
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <img src="{{ url_for('static', filename='images/Niraj.png') }}" class="profile-pic" />
+        <div>
+          <div class="profile-name">Niraj Kumar</div>
+          <div class="profile-username">@NirajG45</div>
         </div>
+      </div>
 
-        <div class="sidebar-section-title">My GitHub Repositories</div>
-        <ul class="repo-list" id="repo-list">
-            <!-- Populated by JS -->
-        </ul>
-        </aside>
+      <div class="sidebar-section-title">My GitHub Repositories</div>
+      <ul class="repo-list" id="repo-list"></ul>
+    </aside>
 
-        <!-- Public Profile Section -->
-        <section class="profile-form">
-        <div class="form-header">
-            <h1>About Profile</h1>
-        </div>
-            <div class="form-grid">
-        <!-- Left Inputs -->
+    <section class="profile-form">
+      <div class="form-header"><h1>About Profile</h1></div>
+      <div class="form-grid">
         <div class="form-left">
-        <!-- Name Section -->
-        <div class="form-group">
+          <!-- Name -->
+          <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
             <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
-        </div>
+          </div>
 
-        <!-- About Myself Section -->
-        <div class="form-group">
+          <!-- About Myself -->
+          <div class="form-group">
             <label><h2>About Myself</h2></label>
             <div id="myself" class="form-note">
-            <p>I am a BCA student with knowledge of programming languages like <strong>C, C++, HTML, CSS, JavaScript, Python</strong>, and database tools like <strong>MySQL, MongoDB, and SQLite</strong>.</p>
-            <p>I have completed an Advanced Diploma in Computer Applications (ADCA) and Tally ERP 9. I enjoy learning new technologies and want to gain real-world experience through an internship where I can apply my skills and grow as a developer.</p>
+              <p>I am a BCA student with knowledge of programming languages like <strong>C, C++, HTML, CSS, JavaScript, Python</strong>, and database tools like <strong>MySQL, MongoDB, and SQLite</strong>.</p>
+              <p>I have completed an ADCA and Tally ERP 9. I enjoy learning and want real-world experience through an internship.</p>
             </div>
-        </div>
+          </div>
 
-        <!-- Education Section -->
-        <div class="form-group">
+          <!-- Education -->
+          <div class="form-group">
             <label><h2>Education</h2></label>
             <ul>
-            <li><strong>BCA</strong> - TMU College, Moradabad (2023–2026)</li>
-            <li><strong>ADCA</strong> - SSIT (Swift Shine and Information Technology) - Completed</li>
-            <li><strong>12th Grade (Science)</strong> - +2 Janata High College, Satayan, Jamui – 2020</li>
-            <li><strong>10th Grade</strong> - +2 Janta High School, Satayan, Jamui – 2018</li>
+              <li><strong>BCA</strong> - TMU College, Moradabad (2023–2026)</li>
+              <li><strong>ADCA</strong> - SSIT - Completed</li>
+              <li><strong>12th Grade</strong> - +2 Janata High College, Jamui – 2020</li>
+              <li><strong>10th Grade</strong> - +2 Janta High School, Jamui – 2018</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Certification Section -->
-        <div class="form-group">
+          <!-- Certifications -->
+          <div class="form-group">
             <label><h2>Certifications</h2></label>
             <ul>
-            <li>Consistent academic performance in school and college</li>
-            <li>Completed ADCA Program</li>
-            <li>
-                <strong>START Program</strong> – Indian Space Research Organisation (ISRO)<br>
-                <em>Grade: A+, Duration: 19.5 hours, Attendance: 92%</em> (Jan 2025)
-            </li>
-            <li>
-                <strong>C Programming Course</strong> – IIT Bombay (Spoken Tutorial Project)<br>
-                <em>Score: 82.5%, Credits: 2</em> (May 2025)
-            </li>
+              <li>Consistent academic performance</li>
+              <li>Completed ADCA Program</li>
+              <li><strong>START Program</strong> – ISRO (Jan 2025, A+)</li>
+              <li><strong>C Programming Course</strong> – IIT Bombay (May 2025, 82.5%)</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Skills & Tools Section -->
-        <div class="form-header">
-            <h1>Skills & Tools</h1>
-        </div>
-
-        <div class="form-grid">
-            <!-- Technical Skills -->
-            <div class="form-left">
-                <!-- Programming Languages -->
-                <div class="form-group">
-                    <h2>Programming Languages</h2>
-                    <ul>
-                        <li>
-                            <!-- C Icon -->
-                            <i class="devicon-c-plain colored"></i>
-                            <strong>C</strong> – Structures, Unions, Arrays, Strings, Pointers, Memory Addressing
-                        </li>
-                        <li>
-                            <!-- C++ Icon -->
-                            <i class="devicon-cplusplus-plain colored"></i>
-                            <strong>C++</strong> – OOPs, STL, Inheritance, Polymorphism, Encapsulation, Templates
-                        </li>
-                        <li>
-                            <!-- Python Icon -->
-                            <i class="devicon-python-plain colored"></i>
-                            <strong>Python</strong> – Data Types, Functions, OOPs, Modules, File Handling, Libraries (NumPy, Pandas)
-                        </li>
-                        <li>
-                            <!-- Database Icons -->
-                            <i class="devicon-mysql-plain colored"></i>
-                            <strong>MySQL</strong>, DBMS, 
-                            <i class="devicon-mongodb-plain colored"></i>
-                            <strong>MongoDB</strong>, SQLite – Queries, Joins, Normalization, CRUD Operations
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Web Development -->
-                <div class="form-group">
-                    <h2>Web Development</h2>
-                    <ul>
-                        <li>
-                            <!-- HTML Icon -->
-                            <i class="devicon-html5-plain colored"></i>
-                            HTML
-                            <i class="devicon-css3-plain colored"></i>
-                            CSS
-                            <i class="devicon-javascript-plain colored"></i>
-                            JavaScript – DOM Manipulation, Forms, Responsive Design
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Software Tools -->
-                <div class="form-group">
-                    <h2>Software Tools</h2>
-                    <ul>
-                        <li>MS Word, Excel, PowerPoint – Documentation, Analysis, Presentation</li>
-                        <li>Tally ERP 9 – Accounting, GST Reports, Ledger Management</li>
-                    </ul>
-                </div>
-
-                <!-- Data Structures -->
-                <div class="form-group">
-                    <h2>Data Structures & DSA</h2>
-                    <ul>
-                        <li>Arrays, Structures, Unions, Linked Lists</li>
-                        <li>Conditional Statements, Loops, Functions, Recursion</li>
-                        <li>Sorting & Searching Algorithms – Bubble, Quick, Binary Search</li>
-                        <li>Stacks, Queues, Trees, Graphs – Implementation & Use Cases</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <div class="form-right">
-                <div class="form-group">
-                    <h2>Soft Skills</h2>
-                    <ul>
-                        <li>Active Listening</li>
-                        <li>Communication</li>
-                        <li>Teamwork</li>
-                        <li>Problem-Solving</li>
-                        <li>Adaptability</li>
-                        <li>Time Management</li>
-                        <li>Empathy</li>
-                        <li>Conflict Resolution</li>
-                    </ul>
-                </div>
-
-                <div class="form-group">
-                    <h2>Languages</h2>
-                    <ul>
-                        <li>English: Intermediate</li>
-                        <li>Hindi: Proficient</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-            </section>
-
-                <div class="background-animation"></div>
-
-        <div class="container">
-
-            <!-- Top Bar -->
-            <div class="top-bar">
-            <div class="time-date">
-                <div class="time" id="live-time">10:45</div>
-                <div class="date" id="live-date">Tue, Apr 23</div>
-            </div>
-                <label class="switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-            <!-- Laptop Icon -->
-            <div class="laptop-icon">
-            <div class="laptop-screen"></div>
-            <div class="laptop-base"></div>
-            </div>
-
-            <!-- Welcome Box -->
-            <div class="welcome-box">
-            WELCOME TO THE FUTURE MY FRIEND,<br/>
-            THIS IS <span class="highlight">Niraj_45</span> PORTFOLIO WEBPAGE WELCOME...
-            </div>
-
-                <!-- Main Section -->
-            <div class="main-section">
-                
-                <!-- Button Grid -->
-                    <div class="button-grid">
-                        <button class="button blue icon-button" onclick="alert('Resume Clicked!')">
-                            <i class="fas fa-file-alt"></i><span>A4 Size<br>Resume</span>
-                        </button>
-                        <button class="button red icon-button" onclick="alert('First Portfolio Clicked!')">
-                            <i class="fas fa-folder"></i><span>First<br>Portfolio</span>
-                        </button>
-                        <button class="button red icon-button" onclick="alert('Second Portfolio Clicked!')">
-                            <i class="fas fa-folder"></i><span>Second<br>Portfolio</span>
-                        </button>
-                        <button class="button blue icon-button" onclick="alert('Third Portfolio Clicked!')">
-                            <i class="fas fa-folder"></i><span>Third<br>Portfolio</span>
-                        </button>
-                    </div>
-
-                <!-- Chart Box -->
-                <div class="chart-box">
-                    <canvas id="skillsChart"></canvas>
-                    <div class="number-box">45</div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <main class="dashboard-two-column">
-        <div class="graph-info">
-        <h2>📑 Dashboard Info</h2>
-        <p>Welcome to my futuristic dashboard...</p>
-        <div class="info-block">
-            <h3>📍 Tip:</h3>
-            <p>Hover over graphs for more insights.</p>
-        </div>
-        <div class="info-block">
-            <h3>📚 Topics Covered:</h3>
+          <!-- Skills -->
+          <div class="form-header"><h1>Skills & Tools</h1></div>
+          <div class="form-group">
+            <h2>Programming Languages</h2>
             <ul>
-            <li>Programming Skills</li>
-            <li>Theoretical Subjects</li>
-            <li>Tool Usage</li>
-            <li>AI, ML, DL Domains</li>
+              <li><i class="devicon-c-plain colored"></i> <strong>C</strong></li>
+              <li><i class="devicon-cplusplus-plain colored"></i> <strong>C++</strong></li>
+              <li><i class="devicon-python-plain colored"></i> <strong>Python</strong></li>
+              <li><i class="devicon-mysql-plain colored"></i> MySQL, <i class="devicon-mongodb-plain colored"></i> MongoDB, SQLite</li>
             </ul>
-        </div>
+          </div>
+
+          <div class="form-group">
+            <h2>Web Development</h2>
+            <ul>
+              <li><i class="devicon-html5-plain colored"></i> HTML, <i class="devicon-css3-plain colored"></i> CSS, <i class="devicon-javascript-plain colored"></i> JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <h2>Software Tools</h2>
+            <ul>
+              <li>MS Office, Tally ERP 9</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <h2>Data Structures & DSA</h2>
+            <ul>
+              <li>Arrays, Linked Lists, Stacks, Queues, Trees, Graphs</li>
+              <li>Sorting (Bubble, Quick), Searching (Binary)</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="graph-content">
-        <div class="chart-card"><h2>📊 Neon Bar Chart</h2><p class="chart-desc">Comparative data using neon bars.</p><canvas id="barChart"></canvas></div>
-        <div class="chart-card"><h2>📈 Smooth Line Chart</h2><p class="chart-desc">Line graph with glowing data points.</p><canvas id="lineChart"></canvas></div>
-        <div class="chart-card"><h2>🥧 Hyper Pie Chart</h2><p class="chart-desc">Pie chart showing data proportions.</p><canvas id="pieChart"></canvas></div>
-        <div class="chart-card"><h2>📡 Radar Chart</h2><p class="chart-desc">Multivariate data in a radial format.</p><canvas id="radarChart"></canvas></div>
-        <div class="chart-card"><h2>🌐 Polar Area Chart</h2><p class="chart-desc">Data by sector area in circular form.</p><canvas id="polarChart"></canvas></div>
-        <div class="chart-card"><h2>🍩 Doughnut Chart</h2><p class="chart-desc">Pie-like chart with central hole.</p><canvas id="doughnutChart"></canvas></div>
-        </div>
-    </main>
+        <div class="form-right">
+          <div class="form-group">
+            <h2>Soft Skills</h2>
+            <ul>
+              <li>Communication, Teamwork, Problem-Solving, Empathy</li>
+              <li>Adaptability, Time Management</li>
+            </ul>
+          </div>
 
-  <!-- JS File -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="static/js/script.js"></script>
+          <div class="form-group">
+            <h2>Languages</h2>
+            <ul>
+              <li>English: Intermediate</li>
+              <li>Hindi: Proficient</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="background-animation"></div>
+
+    <div class="container">
+      <div class="top-bar">
+        <div class="time-date">
+          <div class="time" id="live-time">10:45</div>
+          <div class="date" id="live-date">Tue, Apr 23</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="laptop-icon">
+        <div class="laptop-screen"></div>
+        <div class="laptop-base"></div>
+      </div>
+
+      <div class="welcome-box">
+        WELCOME TO THE FUTURE MY FRIEND,<br/>
+        THIS IS <span class="highlight">Niraj_45</span> PORTFOLIO WEBPAGE WELCOME...
+      </div>
+
+      <div class="main-section">
+        <div class="button-grid">
+          <button class="button blue icon-button" onclick="alert('Resume Clicked!')">
+            <i class="fas fa-file-alt"></i><span>A4 Size<br>Resume</span>
+          </button>
+          <button class="button red icon-button" onclick="alert('First Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>First<br>Portfolio</span>
+          </button>
+          <button class="button red icon-button" onclick="alert('Second Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>Second<br>Portfolio</span>
+          </button>
+          <button class="button blue icon-button" onclick="alert('Third Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>Third<br>Portfolio</span>
+          </button>
+        </div>
+
+        <div class="chart-box">
+          <canvas id="skillsChart"></canvas>
+          <div class="number-box">45</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main class="dashboard-two-column">
+    <div class="graph-info">
+      <h2>📑 Dashboard Info</h2>
+      <p>Welcome to my futuristic dashboard...</p>
+      <div class="info-block">
+        <h3>📍 Tip:</h3>
+        <p>Hover over graphs for more insights.</p>
+      </div>
+      <div class="info-block">
+        <h3>📚 Topics Covered:</h3>
+        <ul>
+          <li>Programming Skills</li>
+          <li>Theoretical Subjects</li>
+          <li>Tool Usage</li>
+          <li>AI, ML, DL Domains</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="graph-content">
+      <div class="chart-card"><h2>📊 Neon Bar Chart</h2><canvas id="barChart"></canvas></div>
+      <div class="chart-card"><h2>📈 Smooth Line Chart</h2><canvas id="lineChart"></canvas></div>
+      <div class="chart-card"><h2>🥧 Hyper Pie Chart</h2><canvas id="pieChart"></canvas></div>
+      <div class="chart-card"><h2>📡 Radar Chart</h2><canvas id="radarChart"></canvas></div>
+      <div class="chart-card"><h2>🌐 Polar Area Chart</h2><canvas id="polarChart"></canvas></div>
+      <div class="chart-card"><h2>🍩 Doughnut Chart</h2><canvas id="doughnutChart"></canvas></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="static/js/script.js"></script>
 </body>
 </html>
