@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic Chart Dashboard</title>
+  <!-- Fonts and Chart.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>⚡ Welcome to the future</h1>
+    <p>This is my Niraj_45-portfolio...</p>
+    <button id="sidebarToggle" class="sidebar-toggle">☰ Menu</button>
+  </header>
+  
+  <div class="container">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="time-date">
+        <div class="time" id="live-time">10:45</div>
+        <div class="date" id="live-date">Tue, Apr 23</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Laptop Icon -->
+    <div class="laptop-icon">
+      <div class="laptop-screen"></div>
+      <div class="laptop-base"></div>
+    </div>
+
+    <!-- Welcome Box -->
+    <div class="welcome-box">
+      WELCOME TO THE FUTURE MY FRIEND,<br/>
+      THIS IS <span class="highlight">Niraj_45</span> PORTFOLIO WEBPAGE WELCOME...
+    </div>
+
+    <!-- Main Section -->
+    <div class="main-section">
+      <!-- Button Grid -->
+      <div class="button-grid">
+        <button class="button blue icon-button" onclick="alert('Resume Clicked!')">
+          <i class="fas fa-file-alt"></i><span>A4 Size<br>Resume</span>
+        </button>
+        <button class="button red icon-button" onclick="alert('First Portfolio Clicked!')">
+          <i class="fas fa-folder"></i><span>First<br>Portfolio</span>
+        </button>
+        <button class="button red icon-button" onclick="alert('Second Portfolio Clicked!')">
+          <i class="fas fa-folder"></i><span>Second<br>Portfolio</span>
+        </button>
+        <button class="button blue icon-button" onclick="alert('Third Portfolio Clicked!')">
+          <i class="fas fa-folder"></i><span>Third<br>Portfolio</span>
+        </button>
+      </div>
+
+      <!-- Chart Box -->
+      <div class="chart-box">
+        <canvas id="skillsChart"></canvas>
+        <div class="number-box">45</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-bar">
+    This portfolio isn’t just built — it’s born from my hands, driven by my mind, and fueled by a heart full of passion and purpose.
+  </div>
+
+  <div class="clock" id="clock">00:00:00</div>
+
+  <!-- GitHub Repositories Section (separated) -->
+  <section class="github-repos-section">
+    <aside class="github-sidebar">
+      <div class="sidebar-profile">
+        <img src="{{ url_for('static', filename='images/Niraj.png') }}" class="profile-pic" />
+        <div>
+          <div class="profile-name">Niraj Kumar</div>
+          <div class="profile-username">@NirajG45</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section-title">My GitHub Repositories</div>
+      <ul class="repo-list" id="repo-list">
+        <!-- Populated by JS -->
+      </ul>
+    </aside>
+  </section>
+
+  <main class="main-content">
+    <!-- (Sidebar removed from here but preserved above) -->
+
+    <!-- Public Profile Section -->
+    <section class="profile-form">
+      <div class="form-header">
+        <h1>About Profile</h1>
+      </div>
+      <div class="form-grid">
+        <!-- Left Inputs -->
+        <div class="form-left">
+
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="I'm Niraj Kumar, a passionate 2nd year BCA student...">
+            <p class="form-note">Your name may appear around GitHub where you contribute or are mentioned.</p>
+          </div>
+
+          <div class="form-group">
+            <label><h2>About Myself</h2></label>
+            <div id="myself" class="form-note">
+              <p>I am a BCA student with knowledge of programming languages like <strong>C, C++, HTML, CSS, JavaScript, Python</strong>, and database tools like <strong>MySQL, MongoDB, and SQLite</strong>.</p>
+              <p>I have completed an Advanced Diploma in Computer Applications (ADCA) and Tally ERP 9...</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label><h2>Education</h2></label>
+            <ul>
+              <li><strong>BCA</strong> - TMU College, Moradabad (2023–2026)</li>
+              <li><strong>ADCA</strong> - SSIT - Completed</li>
+              <li><strong>12th Grade</strong> - +2 Janata High College, Satayan – 2020</li>
+              <li><strong>10th Grade</strong> - +2 Janta High School, Satayan – 2018</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <label><h2>Certifications</h2></label>
+            <ul>
+              <li>Consistent academic performance in school and college</li>
+              <li>Completed ADCA Program</li>
+              <li><strong>START Program</strong> – ISRO</li>
+              <li><strong>C Programming</strong> – IIT Bombay</li>
+            </ul>
+          </div>
+
+          <div class="form-header"><h1>Skills & Tools</h1></div>
+
+          <div class="form-group">
+            <h2>Programming Languages</h2>
+            <ul>
+              <li><i class="devicon-c-plain colored"></i> <strong>C</strong></li>
+              <li><i class="devicon-cplusplus-plain colored"></i> <strong>C++</strong></li>
+              <li><i class="devicon-python-plain colored"></i> <strong>Python</strong></li>
+              <li><i class="devicon-mysql-plain colored"></i> <strong>MySQL</strong>, <i class="devicon-mongodb-plain colored"></i> <strong>MongoDB</strong>, SQLite</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <h2>Web Development</h2>
+            <ul>
+              <li><i class="devicon-html5-plain colored"></i> HTML, <i class="devicon-css3-plain colored"></i> CSS, <i class="devicon-javascript-plain colored"></i> JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <h2>Software Tools</h2>
+            <ul>
+              <li>MS Office, Tally ERP 9</li>
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <h2>Data Structures & DSA</h2>
+            <ul>
+              <li>Arrays, Linked Lists, Stacks, Queues, Trees, Graphs</li>
+              <li>Sorting & Searching Algorithms</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="form-right">
+          <div class="form-group">
+            <h2>Soft Skills</h2>
+            <ul>
+              <li>Communication, Teamwork, Time Management</li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <h2>Languages</h2>
+            <ul>
+              <li>English: Intermediate</li>
+              <li>Hindi: Proficient</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="background-animation"></div>
+  </main>
+
+  <main class="dashboard-two-column">
+    <div class="graph-info">
+      <h2>📑 Dashboard Info</h2>
+      <p>Welcome to my futuristic dashboard...</p>
+      <div class="info-block">
+        <h3>📍 Tip:</h3>
+        <p>Hover over graphs for more insights.</p>
+      </div>
+      <div class="info-block">
+        <h3>📚 Topics Covered:</h3>
+        <ul>
+          <li>Programming Skills</li>
+          <li>Theoretical Subjects</li>
+          <li>Tool Usage</li>
+          <li>AI, ML, DL Domains</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="graph-content">
+      <div class="chart-card"><h2>📊 Neon Bar Chart</h2><p class="chart-desc">Comparative data using neon bars.</p><canvas id="barChart"></canvas></div>
+      <div class="chart-card"><h2>📈 Smooth Line Chart</h2><p class="chart-desc">Line graph with glowing data points.</p><canvas id="lineChart"></canvas></div>
+      <div class="chart-card"><h2>🥧 Hyper Pie Chart</h2><p class="chart-desc">Pie chart showing data proportions.</p><canvas id="pieChart"></canvas></div>
+      <div class="chart-card"><h2>📡 Radar Chart</h2><p class="chart-desc">Multivariate data in a radial format.</p><canvas id="radarChart"></canvas></div>
+      <div class="chart-card"><h2>🌐 Polar Area Chart</h2><p class="chart-desc">Data by sector area in circular form.</p><canvas id="polarChart"></canvas></div>
+      <div class="chart-card"><h2>🍩 Doughnut Chart</h2><p class="chart-desc">Pie-like chart with central hole.</p><canvas id="doughnutChart"></canvas></div>
+    </div>
+  </main>
+
+  <!-- JS File -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="static/js/script.js"></script>
+
+</body>
+</html>
