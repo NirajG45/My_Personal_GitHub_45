@@ -290,8 +290,8 @@ h3 {
 }
 
 .profile-pic-large {
-  width: 160px;
-  height: 160px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   border: 4px solid #30363d;
   object-fit: cover;
@@ -612,7 +612,7 @@ canvas:hover {
   height: 200%;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 0, 34, 0.2) 0px,
+    rgba(0, 0, 0, 0.2) 0px,
     rgba(255, 0, 34, 0.2) 2px,
     transparent 2px,
     transparent 10px,
@@ -687,7 +687,7 @@ canvas:hover {
   width: 80px;
   height: 50px;
   background-color: transparent;
-  border: 4px solid #ff0022;
+  border: 4px solid #e6e6e69d;
   border-radius: 8px;
   box-shadow: 0 0 20px #ff0022, 0 0 40px #ff0022;
 }
