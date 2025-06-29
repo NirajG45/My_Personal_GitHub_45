@@ -654,13 +654,13 @@ canvas:hover {
 .time-date .time {
   font-size: 3em;
   font-weight: bold;
-  text-shadow: 0 0 10px #00f0ff;
+  text-shadow: 0 0 10px #c5c5c5;
 }
 
 .time-date .date {
   font-size: 1.2em;
   opacity: 0.8;
-  text-shadow: 0 0 5px #00f0ff;
+  text-shadow: 0 0 5px #c5c5c5;
 }
 
 .moon {
@@ -708,15 +708,15 @@ canvas:hover {
   padding: 20px;
   background: rgba(0, 255, 255, 0.1);
   border-radius: 20px;
-  border: 2px solid rgba(0, 255, 255, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
-  color: #00f0ff;
-  box-shadow: 0 0 20px #00f0ff;
+  color: #c5c5c5;
+  box-shadow: 0 0 20px #c5c5c5;
 }
 
 .highlight {
   font-weight: bold;
-  color: #00f0ff;
+  color: #c5c5c5;
 }
 
 /* Main Section */

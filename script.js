@@ -17,3 +17,7 @@ function toggleSidebar() {
 document.getElementById("theme-toggle").addEventListener("change", () => {
   document.body.classList.toggle("light-mode");
 });
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+}
