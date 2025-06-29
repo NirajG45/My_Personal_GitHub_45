@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Futuristic Dashboard</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -45,31 +47,27 @@
 
     <!-- Welcome Message -->
     <div class="welcome-box">
-      Welcome, <span class="highlight">Subh!</span> Here's your dashboard overview.
+      Welcome, <span class="highlight">Niraj Kumar!</span> Here's your dashboard overview.
     </div>
 
     <!-- Main Section -->
     <div class="main-section">
 
       <!-- Button Grid -->
-      <div class="button-grid">
-        <div class="button blue icon-button">
-          <i class="fas fa-user-edit"></i>
-          <span>Edit Profile</span>
+        <div class="button-grid">
+            <button class="button blue icon-button" onclick="alert('Resume Clicked!')">
+            <i class="fas fa-file-alt"></i><span>MY A4<br>Resume</span>
+            </button>
+            <button class="button red icon-button" onclick="alert('First Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>First<br>Portfolio</span>
+            </button>
+            <button class="button red icon-button" onclick="alert('Second Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>Second<br>Portfolio</span>
+            </button>
+            <button class="button blue icon-button" onclick="alert('Third Portfolio Clicked!')">
+            <i class="fas fa-folder"></i><span>Third<br>Portfolio</span>
+            </button>
         </div>
-        <div class="button red icon-button">
-          <i class="fas fa-chart-line"></i>
-          <span>View Analytics</span>
-        </div>
-        <div class="button blue icon-button">
-          <i class="fas fa-cogs"></i>
-          <span>Settings</span>
-        </div>
-        <div class="button red icon-button">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>Logout</span>
-        </div>
-      </div>
 
       <!-- Chart Box -->
       <div class="chart-box">
@@ -85,8 +83,8 @@
         <div class="sidebar-profile">
           <img src="assets/profile.jpg" alt="Profile" class="profile-pic">
           <div>
-            <div class="profile-name">Subh</div>
-            <div class="profile-username">@subh_ai</div>
+            <div class="profile-name">Niraj Kumar</div>
+            <div class="profile-username">@Niraj Kumar_ai</div>
           </div>
         </div>
         <div class="sidebar-section-title">Repositories</div>
@@ -100,21 +98,21 @@
       <!-- Profile Form -->
       <div class="profile-form">
         <div class="form-header">
-          <h1>Edit Your Profile</h1>
+          <h1>My Profile</h1>
         </div>
         <div class="form-grid">
           <div class="form-left">
             <div class="form-group">
               <h2>Personal Info</h2>
               <label for="name">Full Name</label>
-              <input type="text" id="name" placeholder="Subh" />
+              <input type="text" id="name" placeholder="Niraj Kumar" />
               <label for="bio">Bio</label>
               <textarea id="bio" rows="4" placeholder="Enthusiastic BCA student, working on futuristic AI tools."></textarea>
             </div>
           </div>
           <div class="form-right">
             <img src="assets/profile.jpg" alt="Large Profile" class="profile-pic-large">
-            <button class="edit-btn">Upload New Photo</button>
+            <button class="edit-btn">Niraj Kumar</button>
           </div>
         </div>
       </div>
