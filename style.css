@@ -495,37 +495,34 @@ canvas:hover {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
-@media (max-width: 1024px) {
-  .main-content {
+@media screen and (max-width: 1024px) {
+  .main-section {
     flex-direction: column;
     align-items: center;
   }
 
-  .sidebar {
+  .main-content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .form-grid {
+    flex-direction: column;
+  }
+
+  .form-left,
+  .form-right {
     width: 100%;
     max-width: 100%;
   }
 
-  .profile-form {
-    width: 100%;
-  }
-
-  .dashboard-two-column {
-    flex-direction: column;
+  .form-right {
     align-items: center;
   }
 
-  .graph-info,
-  .graph-content {
-    width: 100%;
-    min-width: unset;
-    max-width: unset;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar-toggle {
-    display: block;
+  .profile-pic-large {
+    width: 140px;
+    height: 140px;
   }
 
   .sidebar {
@@ -533,105 +530,61 @@ canvas:hover {
     top: 0;
     left: -100%;
     height: 100vh;
-    z-index: 1000;
-    overflow-y: auto;
-    background-color: #111;
+    width: 100%;
     max-width: 250px;
+    background-color: #111;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
   }
 
   .sidebar.active {
     left: 0;
   }
 
-  .main-content {
+  .dashboard-two-column {
     flex-direction: column;
-    padding-top: 60px;
-  }
-
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  .form-grid {
-    flex-direction: column;
-  }
-
-  .form-right {
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .graph-info h2,
-  .graph-info .info-block h3,
-  .graph-content .chart-card h2,
-  .chart-desc {
-    font-size: 1rem;
-  }
-
-  canvas {
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    font-size: 0.85rem;
-    padding: 8px;
-  }
-
-  .form-group h2 {
-    font-size: 1.2rem;
-  }
-
-  .profile-pic-large {
-    width: 120px;
-    height: 120px;
-  }
-
-  .edit-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-
-  .chart-card {
-    padding: 15px;
+    gap: 20px;
   }
 
   canvas {
     max-height: 250px;
   }
-}
 
-.background-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 0, 34, 0.2) 0px,
-    rgba(255, 0, 34, 0.2) 2px,
-    transparent 2px,
-    transparent 10px,
-    rgba(0, 240, 255, 0.2) 10px,
-    rgba(0, 240, 255, 0.2) 12px,
-    transparent 12px,
-    transparent 20px
-  );
-  animation: moveBackground 10s linear infinite;
-  z-index: -1;
-  opacity: 0.3;
-}
-
-@keyframes moveBackground {
-  0% {
-    transform: translate(0, 0);
+  .chart-box {
+    width: 100%;
   }
-  100% {
-    transform: translate(-20px, -20px);
+}
+
+@media screen and (max-width: 480px) {
+  .time-date .time {
+    font-size: 2em;
+  }
+
+  .time-date .date {
+    font-size: 1em;
+  }
+
+  .button-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .icon-button {
+    width: 100%;
+  }
+
+  .welcome-box {
+    font-size: 1.2em;
+    padding: 15px;
+  }
+
+  .form-group h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
   }
 }
 
